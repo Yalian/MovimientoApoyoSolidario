@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.inicioPaneController">
+   <children>
+      <VBox alignment="TOP_CENTER" HBox.hgrow="SOMETIMES">
+         <children>
+            <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Agenda" textAlignment="CENTER" textFill="#39a67f">
+               <font>
+                  <Font name="Lucida Sans Regular" size="18.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets top="20.0" />
+         </padding>
+      </VBox>
+      <VBox alignment="TOP_CENTER" HBox.hgrow="SOMETIMES">
+         <children>
+            <Label text="Proximos a Cosechar" textAlignment="CENTER" textFill="#39a67f">
+               <font>
+                  <Font name="Lucida Sans Regular" size="18.0" />
+               </font>
+            </Label>
+         </children>
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+         <padding>
+            <Insets left="10.0" top="15.0" />
+         </padding>
+      </VBox>
+   </children>
+</HBox>

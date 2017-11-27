@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox prefWidth="330.0" HBox.hgrow="ALWAYS">
+         <children>
+            <JFXTextField promptText="Agregar Responsable" />
+            <JFXTextField promptText="Agregar Presentador" />
+            <JFXTextField layoutX="10.0" layoutY="35.0" promptText="Agregar ciudades" />
+            <JFXTextField layoutX="10.0" layoutY="60.0" promptText="Monto tercera fase" />
+            <JFXTextField layoutX="10.0" layoutY="85.0" promptText="Bono 1° ciclo patrocinador" />
+            <JFXTextField layoutX="10.0" layoutY="110.0" promptText="Bono 2° ciclo patrocinador" />
+            <JFXTextField layoutX="10.0" layoutY="135.0" promptText="Monto tercera fase" />
+         </children>
+      </VBox>
+      <VBox layoutX="10.0" layoutY="10.0" prefWidth="330.0" HBox.hgrow="ALWAYS" />
+   </children>
+</HBox>

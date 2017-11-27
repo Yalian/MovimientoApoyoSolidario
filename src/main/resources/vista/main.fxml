@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="border" minHeight="550.0" minWidth="780.0" prefHeight="550.0" prefWidth="780.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.mainController">
+   <top>
+      <Pane prefHeight="100.0" prefWidth="780.0" style="-fx-background-color: #39A67F;" BorderPane.alignment="CENTER">
+         <effect>
+            <DropShadow height="50.65" radius="12.1625" spread="0.08" width="0.0" />
+         </effect>
+         <children>
+            <ImageView fitHeight="54.0" fitWidth="58.0" layoutX="26.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/icons8_Flow_Chart_96px.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="125.0" layoutY="36.0" text="Movimiento Apoyo Solidario" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </top>
+   <left>
+      <VBox alignment="TOP_CENTER" prefHeight="405.0" prefWidth="120.0" style="-fx-background-color: #39A67F;">
+         <children>
+            <VBox fx:id="menu" alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
+               <children>
+                  <JFXButton accessibleText="inicioVista" prefHeight="43.0" prefWidth="122.0" text="Inicio" textAlignment="CENTER" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imgs/icons8_Home_48px_1.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Lucida Sans Regular" size="14.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton accessibleText="registrosVista" prefHeight="43.0" prefWidth="122.0" text="Registros" textAlignment="CENTER" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imgs/icons8_User_Menu_Male_48px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Lucida Sans Regular" size="14.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton accessibleText="eventosVista" prefHeight="43.0" prefWidth="122.0" text="Eventos" textAlignment="CENTER" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imgs/icons8_Todo_List_48px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Lucida Sans Regular" size="14.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton accessibleText="contactoVista" prefHeight="43.0" prefWidth="122.0" text="Reportes" textAlignment="CENTER" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imgs/icons8_Outline_48px_1.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Lucida Sans Regular" size="14.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </VBox>
+            <JFXButton fx:id="BTN_Configuracion" layoutX="10.0" layoutY="139.0" prefHeight="43.0" prefWidth="122.0" text="Config" textAlignment="CENTER" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/icons8_Outline_48px_1.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="Lucida Sans Regular" size="14.0" />
+               </font>
+            </JFXButton>
+         </children>
+         <effect>
+            <DropShadow height="0.0" radius="4.75" />
+         </effect>
+      </VBox>
+   </left>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="40.0" prefWidth="780.0" style="-fx-background-color: #39A67F;" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Version Demo - Lawrence Solutions - Copyright All Rights Reserved ©" />
+         </children>
+         <effect>
+            <DropShadow height="15.07" radius="3.2675" width="0.0" />
+         </effect>
+      </HBox>
+   </bottom>
+</BorderPane>

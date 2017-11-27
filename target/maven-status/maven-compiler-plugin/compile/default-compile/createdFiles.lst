@@ -1,0 +1,17 @@
+modelo\ClienteFX.class
+helpers\Data.class
+modelo\Constantes.class
+controladores\verClientePane.class
+modelo\Cosecha.class
+controladores\modClientePane.class
+Principal.class
+modelo\Siembra.class
+modelo\Planes.class
+controladores\agregarClientePane.class
+controladores\mainController.class
+controladores\registroPaneController.class
+modelo\Constantes$REGISTROS.class
+modelo\Cliente.class
+modelo\Responsable.class
+controladores\inicioPaneController.class
+helpers\QR.class

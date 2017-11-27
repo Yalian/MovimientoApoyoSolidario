@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTimePicker?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.planes.verEvento">
+   <children>
+      <VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="300.0" spacing="20.0" HBox.hgrow="SOMETIMES">
+         <children>
+            <VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="300.0" spacing="20.0" VBox.vgrow="ALWAYS">
+               <padding>
+                  <Insets left="10.0" right="10.0" top="25.0" />
+               </padding>
+               <children>
+                  <HBox spacing="10.0">
+                     <children>
+                        <JFXTimePicker fx:id="hora" disable="true" />
+                        <JFXDatePicker fx:id="fecha" disable="true" editable="false" maxWidth="1.7976931348623157E308" HBox.hgrow="SOMETIMES" />
+                     </children>
+                  </HBox>
+                  <JFXTextField fx:id="ciudad" editable="false" focusColor="#277c5b" labelFloat="true" promptText="Ciudad" unFocusColor="#39a67f" />
+                  <JFXTextField fx:id="direccion" editable="false" focusColor="#277c5b" labelFloat="true" promptText="Direccion" unFocusColor="#39a67f" />
+                  <JFXTextField fx:id="responsable" editable="false" focusColor="#277c5b" labelFloat="true" layoutX="20.0" layoutY="125.0" promptText="Responsable del Dinero" unFocusColor="#39a67f" />
+                  <JFXTextField fx:id="presentador" editable="false" focusColor="#277c5b" labelFloat="true" layoutX="20.0" layoutY="125.0" promptText="Presentador" unFocusColor="#39a67f" />
+               </children>
+            </VBox>
+            <Separator prefWidth="200.0" VBox.vgrow="SOMETIMES" />
+            <HBox alignment="BOTTOM_CENTER">
+               <children>
+                  <VBox alignment="CENTER" spacing="10.0" HBox.hgrow="SOMETIMES">
+                     <children>
+                        <JFXButton buttonType="RAISED" onAction="#enviarCorreos" text="Enviar correos" textAlignment="CENTER" wrapText="true" />
+                        <JFXButton buttonType="RAISED" layoutX="31.0" layoutY="10.0" onAction="#ingresarDatos" text="Ingresar Datos" textAlignment="CENTER" wrapText="true" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" />
+                     </padding>
+                  </VBox>
+                  <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" spacing="10.0" HBox.hgrow="SOMETIMES">
+                     <children>
+                        <JFXButton buttonType="RAISED" onAction="#cerrar" prefHeight="47.0" prefWidth="63.0" text="Cerrar" textAlignment="CENTER" wrapText="true" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="300.0" spacing="10.0" HBox.hgrow="ALWAYS">
+         <padding>
+            <Insets left="10.0" right="10.0" top="25.0" />
+         </padding>
+         <children>
+            <Label text="Estadisticas del Dia">
+               <font>
+                  <Font name="Lucida Sans Regular" size="14.0" />
+               </font>
+            </Label>
+            <Accordion fx:id="acordion">
+              <panes>
+                <TitledPane animated="false" text="Corte del dia">
+                     <content>
+                        <VBox prefHeight="73.0" prefWidth="338.0" spacing="10.0">
+                           <children>
+                              <JFXTextField fx:id="corteSiembras" labelFloat="true" promptText="Ingresos de siembras" />
+                              <JFXTextField fx:id="corteCosechas" labelFloat="true" layoutX="20.0" layoutY="20.0" promptText="Egreso de cosechas" />
+                              <JFXTextField fx:id="corteBalance" labelFloat="true" layoutX="20.0" layoutY="20.0" promptText="Balance" />
+                           </children>
+                        </VBox>
+                     </content>
+                </TitledPane>
+                <TitledPane animated="false" text="Asistencia Total">
+                     <content>
+                        <VBox prefHeight="73.0" prefWidth="338.0" spacing="10.0">
+                           <children>
+                              <JFXTextField fx:id="asistenciaTotal" labelFloat="true" promptText="Asistencia total" />
+                              <JFXTextField fx:id="asistenciaVisitantes" labelFloat="true" layoutX="20.0" layoutY="20.0" promptText="Solo visitantes" />
+                              <JFXTextField fx:id="asistenciaActivos" labelFloat="true" layoutX="20.0" layoutY="20.0" promptText="Clientes activos" />
+                           </children>
+                        </VBox>
+                     </content>
+                </TitledPane>
+                <TitledPane animated="false" text="Siembras Totales">
+                     <content>
+                        <VBox prefHeight="73.0" prefWidth="338.0" spacing="10.0">
+                           <children>
+                              <JFXTextField fx:id="siembrasBTC" labelFloat="true" promptText="Siembras en BTC" />
+                              <JFXTextField fx:id="siembrasUSD" labelFloat="true" layoutX="20.0" layoutY="20.0" promptText="Siembras en USD" />
+                              <JFXTextField fx:id="siembrasPrimera" labelFloat="true" layoutX="20.0" layoutY="20.0" promptText="Siembras 1° Fase" />
+                              <JFXTextField fx:id="siembrasSegunda" labelFloat="true" layoutX="20.0" layoutY="70.0" promptText="Siembras 2° Fase" />
+                              <JFXTextField fx:id="siembrasTercera" labelFloat="true" layoutX="20.0" layoutY="95.0" promptText="Siembras 3° Fase" />
+                           </children>
+                        </VBox>
+                     </content>
+                </TitledPane>
+                  <TitledPane animated="false" layoutX="10.0" layoutY="60.0" text="Cosecha Totales">
+                     <content>
+                        <VBox prefHeight="73.0" prefWidth="338.0" spacing="10.0">
+                           <children>
+                              <JFXTextField fx:id="cosechasTotales" labelFloat="true" promptText="Cosechas Totales" />
+                              <JFXTextField fx:id="cosechasPrimera" labelFloat="true" layoutX="20.0" layoutY="20.0" promptText="Cosechas 1° Fase" />
+                              <JFXTextField fx:id="cosechasSegunda" labelFloat="true" layoutX="20.0" layoutY="20.0" promptText="Cosechas 2° Fase" />
+                              <JFXTextField fx:id="cosechasTercera" labelFloat="true" layoutX="20.0" layoutY="70.0" promptText="Cosechas 3° Fase" />
+                           </children>
+                        </VBox>
+                     </content>
+                  </TitledPane>
+                  <TitledPane animated="false" layoutX="10.0" layoutY="167.0" text="Registros Nuevos">
+                     <content>
+                        <VBox prefHeight="73.0" prefWidth="338.0">
+                           <children>
+                              <JFXTextField fx:id="registros" labelFloat="true" promptText="Total de Registros Nuevos" />
+                           </children>
+                        </VBox>
+                     </content>
+                  </TitledPane>
+              </panes>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Accordion>
+         </children>
+      </VBox>
+   </children>
+</HBox>
