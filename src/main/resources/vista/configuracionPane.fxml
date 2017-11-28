@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.ConfiguracionPane">
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="330.0" spacing="25.0" HBox.hgrow="ALWAYS">
+         <children>
+            <VBox spacing="10.0">
+               <children>
+                  <HBox spacing="15.0">
+                     <children>
+                        <JFXTextField fx:id="ciudad" labelFloat="true" promptText="Ciudades" HBox.hgrow="ALWAYS" />
+                        <JFXComboBox fx:id="CB_Ciudades" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="TOP_CENTER">
+                     <children>
+                        <JFXButton buttonType="RAISED" onAction="#agregarCiudad" text="Agregar" />
+                        <JFXButton buttonType="RAISED" onAction="#eliminarCiudad" text="Eliminar" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox layoutX="25.0" layoutY="30.0" spacing="10.0">
+               <children>
+                  <HBox spacing="15.0">
+                     <children>
+                        <JFXTextField fx:id="responsable" labelFloat="true" promptText="Responsables" HBox.hgrow="ALWAYS" />
+                        <JFXComboBox fx:id="Cb_Responsables" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="TOP_CENTER">
+                     <children>
+                        <JFXButton buttonType="RAISED" onAction="#agregarResponsable" text="Agregar" />
+                        <JFXButton buttonType="RAISED" onAction="#eliminarResponsable" text="Eliminar" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox layoutX="25.0" layoutY="100.0" spacing="10.0">
+               <children>
+                  <HBox spacing="15.0">
+                     <children>
+                        <JFXTextField fx:id="presentadores" labelFloat="true" promptText="Presentadores" HBox.hgrow="ALWAYS" />
+                        <JFXComboBox fx:id="CB_Presentadores" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="TOP_CENTER">
+                     <children>
+                        <JFXButton buttonType="RAISED" onAction="#agregarPresentador" text="Agregar" />
+                        <JFXButton buttonType="RAISED" onAction="#eliminarPresentador" text="Eliminar" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="15.0" right="15.0" top="35.0" />
+         </padding>
+      </VBox>
+      <VBox layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="330.0" spacing="25.0" HBox.hgrow="ALWAYS">
+         <children>
+            <VBox spacing="10.0">
+               <children>
+                  <HBox spacing="15.0">
+                     <children>
+                        <JFXComboBox fx:id="CB_Correos" labelFloat="true" maxWidth="1.7976931348623157E308" promptText="Correos" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="TOP_CENTER">
+                     <children>
+                        <JFXButton buttonType="RAISED" onAction="#agregarCorreo" text="Agregar" />
+                        <JFXButton buttonType="RAISED" onAction="#eliminarCorreo" text="Eliminar" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="15.0" right="15.0" top="35.0" />
+         </padding>
+      </VBox>
+   </children>
+</HBox>

@@ -15,7 +15,7 @@ import modelo.Evento;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class verEvento implements Initializable{
+public class VerEvento implements Initializable{
     @FXML
     private JFXTimePicker hora;
 

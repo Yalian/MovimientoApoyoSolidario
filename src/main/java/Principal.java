@@ -1,5 +1,7 @@
 
+import constant.Constantes;
 import helpers.Data;
+import helpers.Preferencias;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -7,6 +9,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import modelo.Cliente;
+
+import java.io.File;
 
 
 public class Principal extends Application {
@@ -29,6 +33,8 @@ public class Principal extends Application {
             Platform.exit();
             System.exit(0);
         });
+
+
 
         primaryStage.show();
     }

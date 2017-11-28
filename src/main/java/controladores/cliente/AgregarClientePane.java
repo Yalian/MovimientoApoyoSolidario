@@ -6,6 +6,7 @@ import com.jfoenix.controls.JFXTextField;
 import helpers.AutoComplete;
 import helpers.ClienteFX;
 import helpers.Data;
+import helpers.Preferencias;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -18,7 +19,7 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
-public class agregarClientePane implements Initializable{
+public class AgregarClientePane implements Initializable{
 
     @FXML
     private JFXTextField TXT_ID;
@@ -124,6 +125,7 @@ public class agregarClientePane implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         TF_FechaRegistro.setValue(LocalDate.now());
         CB_Patrocinador.setItems(Data.getClientes());
+        CB_Ciudad.getItems().addAll(Preferencias.leer().getCiudades());
 
         new AutoComplete<ClienteFX>(CB_Patrocinador);
     }

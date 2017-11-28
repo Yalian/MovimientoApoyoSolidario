@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0" prefWidth="660.0" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.eventos.eventoPane">
+<HBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0" prefWidth="660.0" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.eventos.EventoPane">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="410.0" prefWidth="280.0" spacing="15.0" HBox.hgrow="SOMETIMES">
          <children>

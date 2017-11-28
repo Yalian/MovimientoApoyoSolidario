@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.cliente.modClientePane">
+<HBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.cliente.ModClientePane">
    <children>
       <VBox prefHeight="431.0" prefWidth="330.0" spacing="15.0" HBox.hgrow="SOMETIMES">
          <children>
@@ -31,7 +31,7 @@
             <HBox layoutX="20.0" layoutY="70.0" spacing="10.0">
                <children>
                   <JFXComboBox fx:id="CB_Ciudad" labelFloat="true" maxWidth="1.7976931348623157E308" promptText="Ciudad " HBox.hgrow="ALWAYS" />
-                  <JFXTextField fx:id="TF_Celular" focusColor="#277c5b" labelFloat="true" promptText="Celular " unFocusColor="#39a67f" HBox.hgrow="ALWAYS" />
+                  <JFXTextField fx:id="TF_Celular" focusColor="#277c5b" labelFloat="true" maxWidth="1.7976931348623157E308" promptText="Celular " unFocusColor="#39a67f" HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
             <JFXTextField fx:id="TF_Correo" focusColor="#277c5b" labelFloat="true" promptText="Correo " unFocusColor="#39a67f" />

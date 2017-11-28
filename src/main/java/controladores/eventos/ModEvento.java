@@ -5,6 +5,7 @@ import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXTimePicker;
 import helpers.Data;
+import helpers.Preferencias;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,7 +16,7 @@ import modelo.Evento;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class modEvento implements Initializable {
+public class ModEvento implements Initializable {
     @FXML
     private JFXTimePicker hora;
 
@@ -119,7 +120,7 @@ public class modEvento implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Evento evento = Data.findPlanByID(idEvento);
-        CB_Ciudad.getItems().addAll("Quito");
+        CB_Ciudad.getItems().setAll(Preferencias.leer().getCiudades());
 
         hora.setValue(evento.getHora());
         fecha.setValue(evento.getFecha());

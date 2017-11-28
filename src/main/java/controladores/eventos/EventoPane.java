@@ -4,6 +4,7 @@ import com.jfoenix.controls.*;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import helpers.Data;
 import helpers.EventoFX;
+import helpers.Preferencias;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -23,7 +24,7 @@ import java.time.LocalTime;
 import java.util.*;
 
 
-public class eventoPane implements Initializable {
+public class EventoPane implements Initializable {
 
 
     @FXML
@@ -100,8 +101,8 @@ public class eventoPane implements Initializable {
             try {
                 FXMLLoader loader=new FXMLLoader(getClass().getResource("/vista/eventos/verEventoPane.fxml"));
                 loader.setControllerFactory(controllerClass -> {
-                    if (controllerClass == verEvento.class) {
-                        verEvento controller = new verEvento();
+                    if (controllerClass == VerEvento.class) {
+                        VerEvento controller = new VerEvento();
                         controller.setEventoID(TV_Evento.getSelectionModel().getSelectedItem().getValue().ID_PlanesProperty().get());
                         return controller ;
                     } else {
@@ -129,8 +130,8 @@ public class eventoPane implements Initializable {
             try {
                 FXMLLoader loader=new FXMLLoader(getClass().getResource("/vista/eventos/modEventoPane.fxml"));
                 loader.setControllerFactory(controllerClass -> {
-                    if (controllerClass == modEvento.class) {
-                        modEvento controller = new modEvento();
+                    if (controllerClass == ModEvento.class) {
+                        ModEvento controller = new ModEvento();
                         controller.setIdEvento(TV_Evento.getSelectionModel().getSelectedItem().getValue().ID_PlanesProperty().get());
                         return controller ;
                     } else {
@@ -181,7 +182,7 @@ public class eventoPane implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        CB_Ciudad.getItems().addAll("Quito");
+        CB_Ciudad.getItems().setAll(Preferencias.leer().getCiudades());
         CB_TipoBusqueda.getItems().addAll("Fecha","Responsable","Dirección");
         crearTablas();
         refrescar();

@@ -280,6 +280,8 @@ public class Data {
 
     }
 
+
+
     public static void mergePlanByID(int s, Evento p){
         EntityManager em  = emf.createEntityManager();
 

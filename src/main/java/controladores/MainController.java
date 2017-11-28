@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class mainController implements Initializable {
+public class MainController implements Initializable {
 
     @FXML
     private VBox menu;
@@ -30,16 +30,17 @@ public class mainController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
-            HBox inicioPane = FXMLLoader.load(getClass().getResource("/vista/inicioPane.fxml"));
+            HBox inicioPane = FXMLLoader.load(getClass().getResource("/vista/home/inicioPane.fxml"));
             HBox registroPane = FXMLLoader.load(getClass().getResource("/vista/cliente/registroPane.fxml"));
             HBox proximamentePane = FXMLLoader.load(getClass().getResource("/vista/proximamente.fxml"));
             HBox eventoPane = FXMLLoader.load(getClass().getResource("/vista/eventos/eventoPane.fxml"));
             HBox planesPane = FXMLLoader.load(getClass().getResource("/vista/planes/planesPane.fxml"));
+            HBox configuracionPane = FXMLLoader.load(getClass().getResource("/vista/configuracionPane.fxml"));
 
             setNode(inicioPane);
 
             BTN_Configuracion.addEventHandler(MouseEvent.MOUSE_PRESSED, (MouseEvent ev) ->
-                    setNode(proximamentePane));
+                    setNode(configuracionPane));
 
             for (Node node : menu.getChildren()) {
                 if (node.getAccessibleText() != null) {
@@ -52,7 +53,7 @@ public class mainController implements Initializable {
                                 setNode(registroPane);
                                 break;
                             case "configuracionVista":
-                                setNode(proximamentePane);
+                                setNode(configuracionPane);
                                 break;
                             case "planesVista":
                                 setNode(planesPane);

@@ -22,7 +22,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class registroPaneController implements Initializable {
+public class RegistroPaneController implements Initializable {
 
 
     @FXML
@@ -59,8 +59,8 @@ public class registroPaneController implements Initializable {
 
 
                  loader.setControllerFactory(controllerClass -> {
-                     if (controllerClass == verClientePane.class) {
-                         verClientePane controller = new verClientePane();
+                     if (controllerClass == VerClientePane.class) {
+                         VerClientePane controller = new VerClientePane();
                          controller.setClientePane(TV_Principal.getSelectionModel().getSelectedItem().getValue().getId());
                          return controller ;
                      } else {
@@ -92,8 +92,8 @@ public class registroPaneController implements Initializable {
             FXMLLoader loader=new FXMLLoader(getClass().getResource("/vista/cliente/modClientePane.fxml"));
 
             loader.setControllerFactory(controllerClass -> {
-                if (controllerClass == modClientePane.class) {
-                    modClientePane controller = new modClientePane();
+                if (controllerClass == ModClientePane.class) {
+                    ModClientePane controller = new ModClientePane();
                     controller.setClientePane(TV_Principal.getSelectionModel().getSelectedItem().getValue().getId());
                     return controller ;
                 } else {
