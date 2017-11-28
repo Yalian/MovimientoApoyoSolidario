@@ -183,7 +183,7 @@ public class EventoPane implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         CB_Ciudad.getItems().setAll(Preferencias.leer().getCiudades());
-        CB_TipoBusqueda.getItems().addAll("Fecha","Responsable","Dirección");
+        CB_TipoBusqueda.getItems().setAll("Fecha","Responsable","Dirección");
         crearTablas();
         refrescar();
 

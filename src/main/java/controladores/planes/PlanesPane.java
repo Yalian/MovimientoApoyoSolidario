@@ -163,6 +163,15 @@ public class PlanesPane implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         crearTablas();
         refrescar();
+        CB_TipoBusqueda.getItems().setAll("Nombre");
+
+        TF_Busqueda.textProperty().addListener((observable, oldValue, newValue) -> TV_Planes.setPredicate(planesFXTreeItem -> {
+            switch (CB_TipoBusqueda.getSelectionModel().getSelectedItem()){
+                case "Nombre":
+                    return planesFXTreeItem.getValue().nombreProperty().getValue().startsWith(newValue);
+            }
+            return false;
+        }));
 
     }
 }

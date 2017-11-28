@@ -6,27 +6,11 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7977b691-f0a7-4f10-b2ee-03e61e1f1009" name="Default" comment="- Cargar imagen al perfil del cliente mediante modCliente&#10;- Visualizacion de la imagen en los paneles verClient, modCliente&#10;- Metodos agregados al Helper Data">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/MasDB.mv.db" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/vista/planes/eventoPane.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/vista/planes/modEventoPane.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/vista/planes/verEventoPane.fxml" afterPath="" />
+    <list default="true" id="7977b691-f0a7-4f10-b2ee-03e61e1f1009" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/MasDB.mv.db" afterPath="$PROJECT_DIR$/db/MasDB.mv.db" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controladores/cliente/modClientePane.java" afterPath="$PROJECT_DIR$/src/main/java/controladores/cliente/modClientePane.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controladores/cliente/verClientePane.java" afterPath="$PROJECT_DIR$/src/main/java/controladores/cliente/verClientePane.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/helpers/Data.java" afterPath="$PROJECT_DIR$/src/main/java/helpers/Data.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/modelo/Cliente.java" afterPath="$PROJECT_DIR$/src/main/java/modelo/Cliente.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/modelo/Cosecha.java" afterPath="$PROJECT_DIR$/src/main/java/modelo/Cosecha.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/modelo/Evento.java" afterPath="$PROJECT_DIR$/src/main/java/modelo/Evento.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/modelo/Planes.java" afterPath="$PROJECT_DIR$/src/main/java/modelo/Planes.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/modelo/Siembra.java" afterPath="$PROJECT_DIR$/src/main/java/modelo/Siembra.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/vista/cliente/modClientePane.fxml" afterPath="$PROJECT_DIR$/src/main/resources/vista/cliente/modClientePane.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/vista/cliente/registroPane.fxml" afterPath="$PROJECT_DIR$/src/main/resources/vista/cliente/registroPane.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/vista/cliente/verClientePane.fxml" afterPath="$PROJECT_DIR$/src/main/resources/vista/cliente/verClientePane.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/vista/cliente/agregarClientePane.fxml" afterPath="$PROJECT_DIR$/target/classes/vista/cliente/agregarClientePane.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/vista/cliente/verClientePane.fxml" afterPath="$PROJECT_DIR$/target/classes/vista/cliente/verClientePane.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/vista/main.fxml" afterPath="$PROJECT_DIR$/target/classes/vista/main.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controladores/eventos/EventoPane.java" afterPath="$PROJECT_DIR$/src/main/java/controladores/eventos/EventoPane.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controladores/planes/PlanesPane.java" afterPath="$PROJECT_DIR$/src/main/java/controladores/planes/PlanesPane.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -45,47 +29,40 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="QR.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/helpers/QR.java">
+      <file leaf-file-name="PlanesPane.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/controladores/planes/PlanesPane.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-136">
-              <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="modClientePane.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/controladores/cliente/modClientePane.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="150" column="9" lean-forward="true" selection-start-line="141" selection-start-column="8" selection-end-line="150" selection-end-column="9" />
+            <state relative-caret-position="102">
+              <caret line="166" column="0" lean-forward="false" selection-start-line="166" selection-start-column="0" selection-end-line="166" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#actualizarUsr#0;class#modClientePane#0" expanded="false" />
+                <element signature="method#refrescar#0;class#PlanesPane#0" expanded="false" />
+                <element signature="method#crearTablas#0;class#PlanesPane#0" expanded="false" />
+                <element signature="method#abrirModificar#0;class#PlanesPane#0" expanded="false" />
+                <element signature="method#agregarPlan#0;class#PlanesPane#0" expanded="false" />
+                <element signature="method#limpiarCampos#0;class#PlanesPane#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="verClientePane.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/controladores/cliente/verClientePane.java">
+      <file leaf-file-name="MainController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/controladores/MainController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="150" column="9" lean-forward="false" selection-start-line="150" selection-start-column="9" selection-end-line="150" selection-end-column="9" />
-              <folding>
-                <element signature="method#guardarQR#0;class#verClientePane#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="130">
+              <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="modClientePane.fxml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/vista/cliente/modClientePane.fxml">
+      <file leaf-file-name="configuracionPane.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/vista/configuracionPane.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="71" column="46" lean-forward="false" selection-start-line="71" selection-start-column="46" selection-end-line="71" selection-end-column="46" />
-              <folding />
+            <state relative-caret-position="170">
+              <caret line="10" column="252" lean-forward="false" selection-start-line="10" selection-start-column="252" selection-end-line="10" selection-end-column="252" />
+              <folding>
+                <marker date="1511901158938" expanded="true" signature="4323:4348" ph="..." />
+              </folding>
             </state>
           </provider>
           <provider editor-type-id="JavaFX-Scene-Builder">
@@ -93,67 +70,84 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Data.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/helpers/Data.java">
+      <file leaf-file-name="EventoPane.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/controladores/eventos/EventoPane.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="268" column="41" lean-forward="true" selection-start-line="268" selection-start-column="41" selection-end-line="268" selection-end-column="41" />
+            <state relative-caret-position="91">
+              <caret line="185" column="42" lean-forward="false" selection-start-line="185" selection-start-column="42" selection-end-line="185" selection-end-column="42" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#getList#0;class#Data#0" expanded="false" />
-                <element signature="method#getClientes#0;class#Data#0" expanded="false" />
-                <element signature="method#getPlanes#0;class#Data#0" expanded="false" />
-                <element signature="method#persist#0;class#Data#0" expanded="false" />
-                <element signature="method#persist#1;class#Data#0" expanded="false" />
-                <element signature="method#remove#0;class#Data#0" expanded="false" />
-                <element signature="method#removeEventoByID#0;class#Data#0" expanded="false" />
-                <element signature="method#removePlanByID#0;class#Data#0" expanded="false" />
-                <element signature="method#findByID#0;class#Data#0" expanded="false" />
-                <element signature="method#findPlanByID#0;class#Data#0" expanded="false" />
-                <element signature="method#findClienteByID#0;class#Data#0" expanded="false" />
-                <element signature="method#mergeClientByID#0;class#Data#0" expanded="false" />
-                <element signature="method#mergePlanByID#0;class#Data#0" expanded="false" />
+                <element signature="method#eliminarPlan#0;class#EventoPane#0" expanded="false" />
+                <element signature="method#limpiarCampos#0;class#EventoPane#0" expanded="false" />
+                <element signature="method#refrescar#0;class#EventoPane#0" expanded="false" />
+                <element signature="method#crearTablas#0;class#EventoPane#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Cliente.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/modelo/Cliente.java">
+      <file leaf-file-name="ModEvento.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/controladores/eventos/ModEvento.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2485">
-              <caret line="240" column="44" lean-forward="false" selection-start-line="240" selection-start-column="44" selection-end-line="240" selection-end-column="44" />
+            <state relative-caret-position="227">
+              <caret line="122" column="36" lean-forward="false" selection-start-line="122" selection-start-column="36" selection-end-line="122" selection-end-column="36" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="persistence.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml">
+      <file leaf-file-name="VerEvento.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/controladores/eventos/VerEvento.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="29" lean-forward="false" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
+            <state relative-caret-position="-1360">
+              <caret line="25" column="32" lean-forward="false" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Siembra.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/modelo/Siembra.java">
+      <file leaf-file-name="ConfiguracionPane.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/controladores/ConfiguracionPane.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="10" column="51" lean-forward="false" selection-start-line="10" selection-start-column="51" selection-end-line="10" selection-end-column="51" />
+            <state relative-caret-position="-74">
+              <caret line="112" column="70" lean-forward="false" selection-start-line="112" selection-start-column="70" selection-end-line="112" selection-end-column="70" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Preferencias.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/helpers/Preferencias.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AgregarClientePane.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/controladores/cliente/AgregarClientePane.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="696">
+              <caret line="127" column="71" lean-forward="false" selection-start-line="127" selection-start-column="71" selection-end-line="127" selection-end-column="71" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="registroPaneController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/controladores/cliente/registroPaneController.java">
+      <file leaf-file-name="ModClientePane.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/controladores/cliente/ModClientePane.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-31">
-              <caret line="196" column="0" lean-forward="false" selection-start-line="196" selection-start-column="0" selection-end-line="196" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="33">
+              <caret line="123" column="71" lean-forward="false" selection-start-line="123" selection-start-column="71" selection-end-line="123" selection-end-column="71" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#actualizarUsr#0;class#ModClientePane#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -180,17 +174,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/resources/vista/modClientePane.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/modelo/Asistencias.java" />
-        <option value="$PROJECT_DIR$/src/main/java/modelo/Constantes.java" />
-        <option value="$PROJECT_DIR$/src/main/java/modelo/Asistencia.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/modelo/Responsable.java" />
-        <option value="$PROJECT_DIR$/src/main/java/modelo/Respon.java" />
-        <option value="$PROJECT_DIR$/src/main/java/helpers/Loader.java" />
-        <option value="$PROJECT_DIR$/src/main/java/modelo/Invitado.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Principal.java" />
-        <option value="$PROJECT_DIR$/src/main/java/helpers/AutoComplete.java" />
         <option value="$PROJECT_DIR$/src/main/java/helpers/QR.java" />
         <option value="$PROJECT_DIR$/src/main/java/helpers/Calendario.java" />
         <option value="$PROJECT_DIR$/src/main/java/logica/Calculos.java" />
@@ -198,7 +181,6 @@
         <option value="$PROJECT_DIR$/src/main/java/estilos.css" />
         <option value="$PROJECT_DIR$/src/main/java/helpers/PlanGenerador.java" />
         <option value="$PROJECT_DIR$/src/main/resources/vista/planesPane.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/constant/Constantes.java" />
         <option value="$PROJECT_DIR$/src/main/java/controladores/verClientePane.java" />
         <option value="$PROJECT_DIR$/src/main/java/controladores/modClientePane.java" />
         <option value="$PROJECT_DIR$/src/main/java/controladores/verPlan.java" />
@@ -208,7 +190,6 @@
         <option value="$PROJECT_DIR$/src/main/java/controladores/registroPaneController.java" />
         <option value="$PROJECT_DIR$/src/main/java/controladores/inicioPaneController.java" />
         <option value="$PROJECT_DIR$/src/main/java/controladores/agregarClientePane.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/vista/configuracionPane.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/controladores/planes/verPlan.java" />
         <option value="$PROJECT_DIR$/src/main/java/controladores/planes/modPlan.java" />
         <option value="$PROJECT_DIR$/src/main/java/controladores/planes/modEvento.java" />
@@ -229,8 +210,21 @@
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
         <option value="$PROJECT_DIR$/src/main/java/modelo/Cliente.java" />
         <option value="$PROJECT_DIR$/src/main/java/controladores/cliente/modClientePane.java" />
-        <option value="$PROJECT_DIR$/src/main/java/helpers/Data.java" />
         <option value="$PROJECT_DIR$/src/main/java/controladores/cliente/verClientePane.java" />
+        <option value="$PROJECT_DIR$/src/main/java/helpers/Constantes.java" />
+        <option value="$PROJECT_DIR$/src/main/java/constant/ConstantesWrapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/helpers/Data.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Principal.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/vista/configuracionPane.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/controladores/MainController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/helpers/Preferencias.java" />
+        <option value="$PROJECT_DIR$/src/main/java/constant/Constantes.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controladores/cliente/AgregarClientePane.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controladores/cliente/ModClientePane.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controladores/ConfiguracionPane.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controladores/eventos/ModEvento.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controladores/eventos/EventoPane.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controladores/planes/PlanesPane.java" />
       </list>
     </option>
   </component>
@@ -267,7 +261,9 @@
     <option name="width" value="1370" />
     <option name="height" value="772" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages PackagesPane="false" ProjectPane="false" />
@@ -316,6 +312,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="constant" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MAS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MAS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="controladores" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -335,15 +339,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="controladores" type="462c0819:PsiDirectoryNode" />
               <item name="eventos" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MAS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MAS" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="controladores" type="462c0819:PsiDirectoryNode" />
-              <item name="planes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MAS" type="b2602c69:ProjectViewProjectNode" />
@@ -393,24 +388,6 @@
               <item name="vista" type="462c0819:PsiDirectoryNode" />
               <item name="cliente" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="MAS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MAS" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="vista" type="462c0819:PsiDirectoryNode" />
-              <item name="eventos" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MAS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MAS" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="vista" type="462c0819:PsiDirectoryNode" />
-              <item name="planes" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -432,24 +409,24 @@
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\otro disco\MAS\src\main\resources\vista\home" />
+      <recent name="E:\otro disco\MAS\src\main\resources\vista\planes" />
+      <recent name="E:\otro disco\MAS\src\main\resources\vista\cliente" />
+      <recent name="F:\otro disco\MAS\src\main\resources\vista" />
+      <recent name="F:\otro disco\MAS\src\main\java\modelo" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\otro disco\MAS\src\main\resources\vista" />
-      <recent name="F:\otro disco\MAS\src\main\resources\imgs" />
-      <recent name="C:\Users\Lawrence\Documents\MAS\src\main\java" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="controladores" />
       <recent name="modelo" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\otro disco\MAS\src\main\resources\vista\planes" />
-      <recent name="E:\otro disco\MAS\src\main\resources\vista\cliente" />
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\otro disco\MAS\src\main\resources\vista" />
-      <recent name="F:\otro disco\MAS\src\main\java\modelo" />
-      <recent name="C:\Users\Lawrence\Documents\MAS\src\main\java\vista" />
+      <recent name="F:\otro disco\MAS\src\main\resources\imgs" />
+      <recent name="C:\Users\Lawrence\Documents\MAS\src\main\java" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -581,7 +558,21 @@
       <option name="project" value="LOCAL" />
       <updated>1511831960435</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="- Cargar imagen al perfil del cliente mediante modCliente&#10;- Visualizacion de la imagen en los paneles verClient, modCliente&#10;- Metodos agregados al Helper Data">
+      <created>1511886854553</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1511886854553</updated>
+    </task>
+    <task id="LOCAL-00003" summary="- Asignacion de la configuracion a cada uno de los elementos correspondientes&#10;&#10;- Leer y escribir la configuraciones en un fichero local &#10;&#10;- creacion de un helper Preferencias para la lectura escritura de las configuraciones">
+      <created>1511907208519</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1511907208519</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -589,18 +580,19 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3256579" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3256579" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32753405" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27796054" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27796054" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22995462" sideWeight="0.49445325" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22995462" sideWeight="0.49445325" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32730263" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -614,7 +606,6 @@
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32730263" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280507" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="UnknownFeatures">
@@ -627,7 +618,8 @@
     <MESSAGE value="Principal" />
     <MESSAGE value="- Cambio de nombre del antiguo plan a Evento&#10;- Implementacion de la nueva interfaz de Planes&#10;para crear nuevos planes" />
     <MESSAGE value="- Cargar imagen al perfil del cliente mediante modCliente&#10;- Visualizacion de la imagen en los paneles verClient, modCliente&#10;- Metodos agregados al Helper Data" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Cargar imagen al perfil del cliente mediante modCliente&#10;- Visualizacion de la imagen en los paneles verClient, modCliente&#10;- Metodos agregados al Helper Data" />
+    <MESSAGE value="- Asignacion de la configuracion a cada uno de los elementos correspondientes&#10;&#10;- Leer y escribir la configuraciones en un fichero local &#10;&#10;- creacion de un helper Preferencias para la lectura escritura de las configuraciones" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Asignacion de la configuracion a cada uno de los elementos correspondientes&#10;&#10;- Leer y escribir la configuraciones en un fichero local &#10;&#10;- creacion de un helper Preferencias para la lectura escritura de las configuraciones" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -636,86 +628,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/vista/planes/planesPane.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/modelo/Planes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="21" lean-forward="false" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/modelo/Cliente.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="38" column="10" lean-forward="false" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controladores/mainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="29" column="13" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controladores/cliente/agregarClientePane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1343">
-          <caret line="95" column="82" lean-forward="false" selection-start-line="95" selection-start-column="82" selection-end-line="95" selection-end-column="82" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/helpers/ClienteFX.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1802">
-          <caret line="164" column="0" lean-forward="false" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controladores/cliente/modClientePane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1054">
-          <caret line="77" column="107" lean-forward="false" selection-start-line="77" selection-start-column="82" selection-end-line="77" selection-end-column="107" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#actualizarUsr#0;class#modClientePane#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/helpers/Data.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="50" column="28" lean-forward="false" selection-start-line="50" selection-start-column="28" selection-end-line="50" selection-end-column="49" />
-          <folding>
-            <element signature="method#getList#0;class#Data#0" expanded="false" />
-            <element signature="method#getClientes#0;class#Data#0" expanded="false" />
-            <element signature="method#getEventos#0;class#Data#0" expanded="false" />
-            <element signature="method#getPlanes#0;class#Data#0" expanded="false" />
-            <element signature="method#persist#0;class#Data#0" expanded="false" />
-            <element signature="method#persist#1;class#Data#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controladores/cliente/registroPaneController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/controladores/cliente/RegistroPaneController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1955">
           <caret line="135" column="93" lean-forward="false" selection-start-line="135" selection-start-column="93" selection-end-line="135" selection-end-column="93" />
@@ -723,12 +636,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controladores/cliente/verClientePane.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/controladores/cliente/VerClientePane.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1564">
           <caret line="110" column="34" lean-forward="false" selection-start-line="110" selection-start-column="34" selection-end-line="110" selection-end-column="55" />
           <folding>
-            <element signature="method#guardarQR#0;class#verClientePane#0" expanded="false" />
+            <element signature="method#guardarQR#0;class#VerClientePane#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -762,7 +675,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controladores/mainController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/controladores/MainController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="29" column="13" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
@@ -770,7 +683,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controladores/cliente/agregarClientePane.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/controladores/cliente/AgregarClientePane.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1615">
           <caret line="95" column="82" lean-forward="false" selection-start-line="95" selection-start-column="82" selection-end-line="95" selection-end-column="82" />
@@ -786,13 +699,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controladores/cliente/modClientePane.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/controladores/cliente/ModClientePane.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1309">
           <caret line="77" column="107" lean-forward="false" selection-start-line="77" selection-start-column="82" selection-end-line="77" selection-end-column="107" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#actualizarUsr#0;class#modClientePane#0" expanded="false" />
+            <element signature="method#actualizarUsr#0;class#ModClientePane#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -812,7 +725,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controladores/cliente/registroPaneController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/controladores/cliente/RegistroPaneController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2295">
           <caret line="135" column="93" lean-forward="true" selection-start-line="135" selection-start-column="93" selection-end-line="135" selection-end-column="93" />
@@ -820,12 +733,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controladores/cliente/verClientePane.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/controladores/cliente/VerClientePane.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1564">
           <caret line="110" column="34" lean-forward="true" selection-start-line="110" selection-start-column="34" selection-end-line="110" selection-end-column="55" />
           <folding>
-            <element signature="method#guardarQR#0;class#verClientePane#0" expanded="false" />
+            <element signature="method#guardarQR#0;class#VerClientePane#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -859,7 +772,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controladores/inicioPaneController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/controladores/InicioPaneController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
@@ -906,30 +819,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controladores/cliente/agregarClientePane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="934">
-          <caret line="73" column="28" lean-forward="false" selection-start-line="73" selection-start-column="28" selection-end-line="73" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controladores/eventos/verEvento.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="25" column="32" lean-forward="false" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controladores/eventos/modEvento.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1360">
-          <caret line="95" column="21" lean-forward="false" selection-start-line="95" selection-start-column="21" selection-end-line="95" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/helpers/EventoFX.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -938,25 +827,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controladores/eventos/eventoPane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2023">
-          <caret line="150" column="13" lean-forward="false" selection-start-line="150" selection-start-column="13" selection-end-line="150" selection-end-column="13" />
-          <folding>
-            <element signature="method#eliminarPlan#0;class#eventoPane#0" expanded="false" />
-            <element signature="method#limpiarCampos#0;class#eventoPane#0" expanded="false" />
-            <element signature="method#refrescar#0;class#eventoPane#0" expanded="false" />
-            <element signature="method#crearTablas#0;class#eventoPane#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/helpers/PlanesFX.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="646">
           <caret line="43" column="24" lean-forward="false" selection-start-line="43" selection-start-column="24" selection-end-line="43" selection-end-column="24" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
             <element signature="e#1702#1703#0" expanded="false" />
             <element signature="e#1751#1752#0" expanded="false" />
             <element signature="e#1776#1777#0" expanded="false" />
@@ -1021,19 +897,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controladores/planes/planesPane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-154">
-          <caret line="130" column="5" lean-forward="false" selection-start-line="130" selection-start-column="5" selection-end-line="130" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="method#crearTablas#0;class#planesPane#0" expanded="false" />
-            <element signature="method#abrirModificar#0;class#planesPane#0" expanded="false" />
-            <element signature="method#limpiarCampos#0;class#planesPane#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/modelo/Cosecha.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -1076,26 +939,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controladores/cliente/registroPaneController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/controladores/cliente/RegistroPaneController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-31">
+        <state relative-caret-position="152">
           <caret line="196" column="0" lean-forward="false" selection-start-line="196" selection-start-column="0" selection-end-line="196" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controladores/mainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Principal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1116,10 +963,55 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/vista/cliente/modClientePane.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="71" column="46" lean-forward="false" selection-start-line="71" selection-start-column="46" selection-end-line="71" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controladores/cliente/VerClientePane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="150" column="9" lean-forward="false" selection-start-line="150" selection-start-column="9" selection-end-line="150" selection-end-column="9" />
+          <folding>
+            <element signature="method#guardarQR#0;class#VerClientePane#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/helpers/AutoComplete.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/helpers/Constantes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/constant/ConstantesWrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="12" column="34" lean-forward="false" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/helpers/Data.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="268" column="41" lean-forward="true" selection-start-line="268" selection-start-column="41" selection-end-line="268" selection-end-column="41" />
+        <state relative-caret-position="713">
+          <caret line="282" column="0" lean-forward="false" selection-start-line="282" selection-start-column="0" selection-end-line="282" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#getList#0;class#Data#0" expanded="false" />
@@ -1134,41 +1026,141 @@
             <element signature="method#findPlanByID#0;class#Data#0" expanded="false" />
             <element signature="method#findClienteByID#0;class#Data#0" expanded="false" />
             <element signature="method#mergeClientByID#0;class#Data#0" expanded="false" />
+            <element signature="method#agregarFoto#0;class#Data#0" expanded="false" />
             <element signature="method#mergePlanByID#0;class#Data#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controladores/cliente/modClientePane.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/modelo/Correos.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="150" column="9" lean-forward="true" selection-start-line="141" selection-start-column="8" selection-end-line="150" selection-end-column="9" />
+        <state relative-caret-position="34">
+          <caret line="2" column="20" lean-forward="false" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Principal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#actualizarUsr#0;class#modClientePane#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controladores/cliente/verClientePane.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/vista/configuracionPane.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="150" column="9" lean-forward="false" selection-start-line="150" selection-start-column="9" selection-end-line="150" selection-end-column="9" />
+        <state relative-caret-position="170">
+          <caret line="10" column="252" lean-forward="false" selection-start-line="10" selection-start-column="252" selection-end-line="10" selection-end-column="252" />
           <folding>
-            <element signature="method#guardarQR#0;class#verClientePane#0" expanded="false" />
+            <marker date="1511901158938" expanded="true" signature="4323:4348" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/vista/cliente/modClientePane.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="71" column="46" lean-forward="false" selection-start-line="71" selection-start-column="46" selection-end-line="71" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/constant/Constantes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-295">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/helpers/Preferencias.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controladores/cliente/AgregarClientePane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="696">
+          <caret line="127" column="71" lean-forward="false" selection-start-line="127" selection-start-column="71" selection-end-line="127" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controladores/cliente/ModClientePane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="33">
+          <caret line="123" column="71" lean-forward="false" selection-start-line="123" selection-start-column="71" selection-end-line="123" selection-end-column="71" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#actualizarUsr#0;class#ModClientePane#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controladores/ConfiguracionPane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-74">
+          <caret line="112" column="70" lean-forward="false" selection-start-line="112" selection-start-column="70" selection-end-line="112" selection-end-column="70" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controladores/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controladores/eventos/VerEvento.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1360">
+          <caret line="25" column="32" lean-forward="false" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controladores/eventos/ModEvento.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="122" column="36" lean-forward="false" selection-start-line="122" selection-start-column="36" selection-end-line="122" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controladores/eventos/EventoPane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="185" column="42" lean-forward="false" selection-start-line="185" selection-start-column="42" selection-end-line="185" selection-end-column="42" />
+          <folding>
+            <element signature="method#eliminarPlan#0;class#EventoPane#0" expanded="false" />
+            <element signature="method#limpiarCampos#0;class#EventoPane#0" expanded="false" />
+            <element signature="method#refrescar#0;class#EventoPane#0" expanded="false" />
+            <element signature="method#crearTablas#0;class#EventoPane#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controladores/planes/PlanesPane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="166" column="0" lean-forward="false" selection-start-line="166" selection-start-column="0" selection-end-line="166" selection-end-column="0" />
+          <folding>
+            <element signature="method#refrescar#0;class#PlanesPane#0" expanded="false" />
+            <element signature="method#crearTablas#0;class#PlanesPane#0" expanded="false" />
+            <element signature="method#abrirModificar#0;class#PlanesPane#0" expanded="false" />
+            <element signature="method#agregarPlan#0;class#PlanesPane#0" expanded="false" />
+            <element signature="method#limpiarCampos#0;class#PlanesPane#0" expanded="false" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>
