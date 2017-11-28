@@ -4,118 +4,148 @@ import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+import javax.persistence.Column;
+import javax.persistence.Id;
 
 public class PlanesFX extends RecursiveTreeObject<PlanesFX> {
 
-    SimpleIntegerProperty ID_Planes;
+    SimpleIntegerProperty ID;
 
-    SimpleStringProperty fecha;
+    SimpleStringProperty nombre;
 
-    SimpleStringProperty hora;
+    SimpleIntegerProperty dias;
 
-    SimpleStringProperty ciudad;
+    SimpleIntegerProperty bonoGratitudPrimer;
 
-    SimpleStringProperty direccion;
+    SimpleIntegerProperty bonoPersonalPrimer;
 
-    SimpleStringProperty responDinero;
+    SimpleIntegerProperty bonoCoPatrocinadorPrimer;
 
-    SimpleStringProperty presentador;
+    SimpleIntegerProperty bonoCoPatrocinadorSegundo;
 
-    public PlanesFX(int ID_Planes, LocalDate fecha, LocalTime hora,
-                    String ciudad, String direccion, String responDinero,
-                    String presentador) {
-        this.ID_Planes = new SimpleIntegerProperty(ID_Planes);
-        this.fecha = new SimpleStringProperty(fecha.toString());
-        this.hora = new SimpleStringProperty(hora.toString());
-        this.ciudad = new SimpleStringProperty(ciudad);
-        this.direccion = new SimpleStringProperty(direccion);
-        this.responDinero = new SimpleStringProperty(responDinero);
-        this.presentador = new SimpleStringProperty(presentador);
+    SimpleIntegerProperty bonoPersonalSegundo;
+
+    SimpleIntegerProperty bonoGratitudSegundo;
+
+    public PlanesFX(int ID, String nombre, int dias, int bonoGratitudPrimer,
+                    int bonoPersonalPrimer, int bonoCoPatrocinadorPrimer, int bonoCoPatrocinadorSegundo,
+                    int bonoPersonalSegundo, int bonoGratitudSegundo) {
+        this.ID = new SimpleIntegerProperty(ID);
+        this.nombre = new SimpleStringProperty(nombre);
+        this.dias = new SimpleIntegerProperty(dias);
+        this.bonoGratitudPrimer = new SimpleIntegerProperty(bonoGratitudPrimer);
+        this.bonoPersonalPrimer = new SimpleIntegerProperty(bonoPersonalPrimer);
+        this.bonoCoPatrocinadorPrimer = new SimpleIntegerProperty(bonoCoPatrocinadorPrimer);
+        this.bonoCoPatrocinadorSegundo = new SimpleIntegerProperty(bonoCoPatrocinadorSegundo);
+        this.bonoPersonalSegundo = new SimpleIntegerProperty(bonoPersonalSegundo);
+        this.bonoGratitudSegundo = new SimpleIntegerProperty(bonoGratitudSegundo);
     }
 
-    public int getID_Planes() {
-        return ID_Planes.get();
+    public int getID() {
+        return ID.get();
     }
 
-    public SimpleIntegerProperty ID_PlanesProperty() {
-        return ID_Planes;
+    public SimpleIntegerProperty IDProperty() {
+        return ID;
     }
 
-    public void setID_Planes(int ID_Planes) {
-        this.ID_Planes.set(ID_Planes);
+    public void setID(int ID) {
+        this.ID.set(ID);
     }
 
-    public String getFecha() {
-        return fecha.get();
+    public String getNombre() {
+        return nombre.get();
     }
 
-    public SimpleStringProperty fechaProperty() {
-        return fecha;
+    public SimpleStringProperty nombreProperty() {
+        return nombre;
     }
 
-    public void setFecha(String fecha) {
-        this.fecha.set(fecha);
+    public void setNombre(String nombre) {
+        this.nombre.set(nombre);
     }
 
-    public String getHora() {
-        return hora.get();
+    public int getDias() {
+        return dias.get();
     }
 
-    public SimpleStringProperty horaProperty() {
-        return hora;
+    public SimpleIntegerProperty diasProperty() {
+        return dias;
     }
 
-    public void setHora(String hora) {
-        this.hora.set(hora);
+    public void setDias(int dias) {
+        this.dias.set(dias);
     }
 
-    public String getCiudad() {
-        return ciudad.get();
+    public int getBonoGratitudPrimer() {
+        return bonoGratitudPrimer.get();
     }
 
-    public SimpleStringProperty ciudadProperty() {
-        return ciudad;
+    public SimpleIntegerProperty bonoGratitudPrimerProperty() {
+        return bonoGratitudPrimer;
     }
 
-    public void setCiudad(String ciudad) {
-        this.ciudad.set(ciudad);
+    public void setBonoGratitudPrimer(int bonoGratitudPrimer) {
+        this.bonoGratitudPrimer.set(bonoGratitudPrimer);
     }
 
-    public String getDireccion() {
-        return direccion.get();
+    public int getBonoPersonalPrimer() {
+        return bonoPersonalPrimer.get();
     }
 
-    public SimpleStringProperty direccionProperty() {
-        return direccion;
+    public SimpleIntegerProperty bonoPersonalPrimerProperty() {
+        return bonoPersonalPrimer;
     }
 
-    public void setDireccion(String direccion) {
-        this.direccion.set(direccion);
+    public void setBonoPersonalPrimer(int bonoPersonalPrimer) {
+        this.bonoPersonalPrimer.set(bonoPersonalPrimer);
     }
 
-    public String getResponDinero() {
-        return responDinero.get();
+    public int getBonoCoPatrocinadorPrimer() {
+        return bonoCoPatrocinadorPrimer.get();
     }
 
-    public SimpleStringProperty responDineroProperty() {
-        return responDinero;
+    public SimpleIntegerProperty bonoCoPatrocinadorPrimerProperty() {
+        return bonoCoPatrocinadorPrimer;
     }
 
-    public void setResponDinero(String responDinero) {
-        this.responDinero.set(responDinero);
+    public void setBonoCoPatrocinadorPrimer(int bonoCoPatrocinadorPrimer) {
+        this.bonoCoPatrocinadorPrimer.set(bonoCoPatrocinadorPrimer);
     }
 
-    public String getPresentador() {
-        return presentador.get();
+    public int getBonoCoPatrocinadorSegundo() {
+        return bonoCoPatrocinadorSegundo.get();
     }
 
-    public SimpleStringProperty presentadorProperty() {
-        return presentador;
+    public SimpleIntegerProperty bonoCoPatrocinadorSegundoProperty() {
+        return bonoCoPatrocinadorSegundo;
     }
 
-    public void setPresentador(String presentador) {
-        this.presentador.set(presentador);
+    public void setBonoCoPatrocinadorSegundo(int bonoCoPatrocinadorSegundo) {
+        this.bonoCoPatrocinadorSegundo.set(bonoCoPatrocinadorSegundo);
+    }
+
+    public int getBonoPersonalSegundo() {
+        return bonoPersonalSegundo.get();
+    }
+
+    public SimpleIntegerProperty bonoPersonalSegundoProperty() {
+        return bonoPersonalSegundo;
+    }
+
+    public void setBonoPersonalSegundo(int bonoPersonalSegundo) {
+        this.bonoPersonalSegundo.set(bonoPersonalSegundo);
+    }
+
+    public int getBonoGratitudSegundo() {
+        return bonoGratitudSegundo.get();
+    }
+
+    public SimpleIntegerProperty bonoGratitudSegundoProperty() {
+        return bonoGratitudSegundo;
+    }
+
+    public void setBonoGratitudSegundo(int bonoGratitudSegundo) {
+        this.bonoGratitudSegundo.set(bonoGratitudSegundo);
     }
 }

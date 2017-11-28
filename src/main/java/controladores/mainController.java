@@ -33,7 +33,8 @@ public class mainController implements Initializable {
             HBox inicioPane = FXMLLoader.load(getClass().getResource("/vista/inicioPane.fxml"));
             HBox registroPane = FXMLLoader.load(getClass().getResource("/vista/cliente/registroPane.fxml"));
             HBox proximamentePane = FXMLLoader.load(getClass().getResource("/vista/proximamente.fxml"));
-            HBox eventoPane = FXMLLoader.load(getClass().getResource("/vista/planes/eventoPane.fxml"));
+            HBox eventoPane = FXMLLoader.load(getClass().getResource("/vista/eventos/eventoPane.fxml"));
+            HBox planesPane = FXMLLoader.load(getClass().getResource("/vista/planes/planesPane.fxml"));
 
             setNode(inicioPane);
 
@@ -52,6 +53,9 @@ public class mainController implements Initializable {
                                 break;
                             case "configuracionVista":
                                 setNode(proximamentePane);
+                                break;
+                            case "planesVista":
+                                setNode(planesPane);
                                 break;
                             case "eventosVista":
                                 setNode(eventoPane);

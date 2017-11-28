@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.planes.planesPane">
+   <children>
+      <VBox prefHeight="410.0" prefWidth="182.0" HBox.hgrow="ALWAYS">
+         <children>
+            <VBox alignment="TOP_CENTER" prefHeight="357.0" prefWidth="274.0" spacing="15.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <JFXTextField fx:id="nombre" labelFloat="true" promptText="Nombre" />
+                  <JFXTextField fx:id="dias" labelFloat="true" promptText="Dias Laborables" />
+                  <JFXTextField fx:id="grat_1" labelFloat="true" promptText="Bono Gratitud 1° Fase" />
+                  <JFXTextField fx:id="grat_2" labelFloat="true" promptText="Bono Gratitud 2° Fase" />
+                  <JFXTextField fx:id="personal_1" labelFloat="true" promptText="Bono Personal 1° Fase" />
+                  <JFXTextField fx:id="personal_2" labelFloat="true" promptText="Bono Personal 2° Fase" />
+                  <JFXTextField fx:id="patro_1" labelFloat="true" promptText="Bono Co-Patrocinador 1° Fase" />
+                  <JFXTextField fx:id="patro_2" labelFloat="true" promptText="Bono Co-Patrocinador 2° Fase" />
+               </children>
+               <padding>
+                  <Insets bottom="20.0" left="15.0" right="15.0" top="20.0" />
+               </padding>
+            </VBox>
+            <Separator prefWidth="200.0" />
+            <HBox alignment="CENTER">
+               <children>
+                  <JFXButton fx:id="BTN_Aceptar" onAction="#agregarPlan" prefHeight="50.0" prefWidth="125.0" text="Agregar" />
+                  <Separator orientation="VERTICAL" prefHeight="50.0" />
+                  <JFXButton layoutX="10.0" layoutY="10.0" onAction="#limpiarCampos" prefHeight="50.0" prefWidth="125.0" text="Limpiar Campos" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <VBox alignment="CENTER" prefWidth="330.0" spacing="10.0" HBox.hgrow="ALWAYS">
+         <children>
+            <HBox alignment="CENTER_RIGHT" prefHeight="80.0" prefWidth="359.0" spacing="10.0">
+               <children>
+                  <JFXTextField fx:id="TF_Busqueda" alignment="CENTER_RIGHT" focusColor="#277c5b" labelFloat="true" promptText="Buscar" unFocusColor="#39a67f" />
+                  <JFXComboBox fx:id="CB_TipoBusqueda" focusColor="#277c5b" prefHeight="25.0" prefWidth="116.0" unFocusColor="#39a67f" />
+               </children>
+               <padding>
+                  <Insets right="20.0" />
+               </padding>
+            </HBox>
+            <JFXTreeTableView fx:id="TV_Planes" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#abrirModificar" prefHeight="290.0" prefWidth="359.0" showRoot="false" tableMenuButtonVisible="true" VBox.vgrow="SOMETIMES">
+               <columnResizePolicy>
+                  <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </JFXTreeTableView>
+            <Separator prefWidth="200.0" />
+            <HBox alignment="TOP_CENTER" prefHeight="30.0" spacing="10.0">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <children>
+                  <JFXButton layoutX="177.0" layoutY="10.0" onAction="#eliminarPlan" prefHeight="50.0" prefWidth="80.0" text="Eliminar" />
+               </children>
+               <padding>
+                  <Insets bottom="10.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</HBox>

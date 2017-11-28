@@ -1,6 +1,8 @@
 package controladores.cliente;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXCheckBox;
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import helpers.Data;
 import helpers.QR;
@@ -30,7 +32,7 @@ public class modClientePane implements Initializable{
     private JFXTextField TF_Apellidos;
 
     @FXML
-    private JFXTextField TF_Ciudad;
+    private JFXComboBox<String> CB_Ciudad;
 
     @FXML
     private JFXTextField TF_Celular;
@@ -74,10 +76,15 @@ public class modClientePane implements Initializable{
 
     @FXML
     void actualizarUsr(ActionEvent event) {
-        Cliente n = new Cliente(TF_Cedula.getText(),TF_Nombres.getText(),TF_Apellidos.getText(),
-                TF_Ciudad.getText(),Data.findClienteByID(id).getID_Patrocinador(),TF_Patrocinador.getText(),
-                TF_Copatrocinador.getText(),TF_Celular.getText(),TF_Correo.getText(),TF_Direccion.getText(),
-                TF_FechaRegistro.getValue());
+        Cliente n = new Cliente(
+                TF_Cedula.getText(),
+                TF_Nombres.getText(),
+                TF_Apellidos.getText(),
+                CB_Ciudad.getSelectionModel().getSelectedItem(),
+                TF_Celular.getText(),
+                TF_Correo.getText(),
+                TF_Direccion.getText()
+        );
 
         Data.mergeClientByID(id,n);
 
@@ -99,7 +106,7 @@ public class modClientePane implements Initializable{
         TF_Nombres.setText(s.getNombres()+"");
         TF_Cedula.setText(s.getCelular()+"");
         TF_Celular.setText(s.getCelular()+"");
-        TF_Ciudad.setText(s.getCiudad()+"");
+        CB_Ciudad.getSelectionModel().select(s.getCiudad());
         TF_Copatrocinador.setText(s.getCoPatrocinador()+"");
         TF_FechaRegistro.setValue(s.getFechaRegistro());
         TF_Direccion.setText(s.getDireccion()+"");

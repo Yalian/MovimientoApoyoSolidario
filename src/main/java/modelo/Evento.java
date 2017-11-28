@@ -8,11 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "PLANES")
+@Table(name = "EVENTOS")
 public class Evento implements Serializable{
 
     @Id
-    @GeneratedValue
     @Column(name = "ID_Planes")
     int ID_Planes;
 
@@ -51,7 +50,8 @@ public class Evento implements Serializable{
     public Evento() {
     }
 
-    public Evento(LocalDate fecha, LocalTime hora, String ciudad, String direccion, String responDinero, String presentador) {
+    public Evento(LocalDate fecha, LocalTime hora, String ciudad, String direccion,
+                  String responDinero, String presentador) {
         this.fecha = fecha;
         this.hora = hora;
         this.ciudad = ciudad;

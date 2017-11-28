@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
@@ -27,11 +28,16 @@
                   <JFXTextField fx:id="TF_Apellidos" focusColor="#277c5b" labelFloat="true" promptText="Apellidos *" unFocusColor="#39a67f" />
                </children>
             </HBox>
-            <JFXTextField fx:id="TF_Ciudad" focusColor="#277c5b" labelFloat="true" promptText="Ciudad *" unFocusColor="#39a67f" />
-            <JFXTextField fx:id="TF_Celular" focusColor="#277c5b" labelFloat="true" promptText="Celular *" unFocusColor="#39a67f" />
+            <HBox spacing="10.0">
+               <children>
+                  <JFXComboBox fx:id="CB_Ciudad" labelFloat="true" maxWidth="1.7976931348623157E308" promptText="Ciudad " HBox.hgrow="ALWAYS" />
+                  <JFXTextField fx:id="TF_Celular" focusColor="#277c5b" labelFloat="true" promptText="Celular " unFocusColor="#39a67f" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
             <JFXTextField fx:id="TF_Correo" focusColor="#277c5b" labelFloat="true" promptText="Correo *" unFocusColor="#39a67f" />
             <JFXTextField fx:id="TF_Direccion" focusColor="#277c5b" labelFloat="true" promptText="Dirección" unFocusColor="#39a67f" />
             <Separator prefWidth="200.0" />
+            <JFXComboBox fx:id="CB_TipoPlan" labelFloat="true" maxWidth="1.7976931348623157E308" promptText="Tipo de plan inscrito" />
             <JFXTextField fx:id="TF_Patrocinador" focusColor="#277c5b" labelFloat="true" promptText="Patrocinador *" unFocusColor="#39a67f" />
             <JFXTextField fx:id="TF_Copatrocinador" focusColor="#277c5b" labelFloat="true" promptText="Co - Patrocinador" unFocusColor="#39a67f" />
             <HBox alignment="CENTER" prefHeight="45.0" prefWidth="310.0" spacing="20.0">

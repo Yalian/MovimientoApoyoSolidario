@@ -1,9 +1,9 @@
-package controladores.planes;
+package controladores.eventos;
 
 import com.jfoenix.controls.*;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import helpers.Data;
-import helpers.PlanesFX;
+import helpers.EventoFX;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -54,7 +54,7 @@ public class eventoPane implements Initializable {
     private JFXTextField TF_Busqueda;
 
     @FXML
-    private JFXTreeTableView<PlanesFX> TV_Evento;
+    private JFXTreeTableView<EventoFX> TV_Evento;
 
     @FXML
     private JFXComboBox<String> CB_TipoBusqueda;
@@ -69,6 +69,7 @@ public class eventoPane implements Initializable {
                 TF_Responsable.getText(),
                 TF_Presentador.getText()
         );
+
         Data.persist(evento);
 
         refrescar();
@@ -78,7 +79,7 @@ public class eventoPane implements Initializable {
     @FXML
     void eliminarPlan(ActionEvent event) {
         int id = TV_Evento.getSelectionModel().getSelectedItem().getValue().getID_Planes();
-        Data.removePlanByID(id);
+        Data.removeEventoByID(id);
         refrescar();
     }
 
@@ -97,7 +98,7 @@ public class eventoPane implements Initializable {
     void abrirPlan(MouseEvent event) {
         if (event.getClickCount() == 2) {
             try {
-                FXMLLoader loader=new FXMLLoader(getClass().getResource("/vista/planes/verEventoPane.fxml"));
+                FXMLLoader loader=new FXMLLoader(getClass().getResource("/vista/eventos/verEventoPane.fxml"));
                 loader.setControllerFactory(controllerClass -> {
                     if (controllerClass == verEvento.class) {
                         verEvento controller = new verEvento();
@@ -126,7 +127,7 @@ public class eventoPane implements Initializable {
     @FXML
     void modificarPlan(ActionEvent event) {
             try {
-                FXMLLoader loader=new FXMLLoader(getClass().getResource("/vista/planes/modEventoPane.fxml"));
+                FXMLLoader loader=new FXMLLoader(getClass().getResource("/vista/eventos/modEventoPane.fxml"));
                 loader.setControllerFactory(controllerClass -> {
                     if (controllerClass == modEvento.class) {
                         modEvento controller = new modEvento();
@@ -151,27 +152,27 @@ public class eventoPane implements Initializable {
     }
 
     private void refrescar(){
-        ObservableList<PlanesFX> data = Data.getPlanes();
-        TreeItem<PlanesFX> root = new RecursiveTreeItem<>(data, RecursiveTreeObject::getChildren);
+        ObservableList<EventoFX> data = Data.getEventos();
+        TreeItem<EventoFX> root = new RecursiveTreeItem<>(data, RecursiveTreeObject::getChildren);
         TV_Evento.setRoot(root);
         TV_Evento.setShowRoot(false);
     }
 
     private void crearTablas(){
-        JFXTreeTableColumn<PlanesFX, Number> idCol = new JFXTreeTableColumn<>("ID");
+        JFXTreeTableColumn<EventoFX, Number> idCol = new JFXTreeTableColumn<>("ID");
         idCol.setCellValueFactory(param -> param.getValue().getValue().ID_PlanesProperty());
         idCol.setVisible(false);
 
-        JFXTreeTableColumn<PlanesFX, String> fechaCol = new JFXTreeTableColumn<>("Fecha");
+        JFXTreeTableColumn<EventoFX, String> fechaCol = new JFXTreeTableColumn<>("Fecha");
         fechaCol.setCellValueFactory(param ->  param.getValue().getValue().fechaProperty());
 
-        JFXTreeTableColumn<PlanesFX, String> direccionCol = new JFXTreeTableColumn<>("Direccion");
+        JFXTreeTableColumn<EventoFX, String> direccionCol = new JFXTreeTableColumn<>("Direccion");
         direccionCol.setCellValueFactory(param -> param.getValue().getValue().direccionProperty());
 
-        JFXTreeTableColumn<PlanesFX, String> presentadorCol = new JFXTreeTableColumn<>("Presentador");
+        JFXTreeTableColumn<EventoFX, String> presentadorCol = new JFXTreeTableColumn<>("Presentador");
         presentadorCol.setCellValueFactory(param -> param.getValue().getValue().presentadorProperty());
 
-        JFXTreeTableColumn<PlanesFX, String> responsableCol = new JFXTreeTableColumn<>("Responsable");
+        JFXTreeTableColumn<EventoFX, String> responsableCol = new JFXTreeTableColumn<>("Responsable");
         responsableCol.setCellValueFactory(param -> param.getValue().getValue().responDineroProperty());
         responsableCol.setVisible(false);
 

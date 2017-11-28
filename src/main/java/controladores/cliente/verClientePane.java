@@ -1,6 +1,7 @@
 package controladores.cliente;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import helpers.Data;
@@ -33,7 +34,10 @@ public class verClientePane implements Initializable{
     private JFXTextField TF_Apellidos;
 
     @FXML
-    private JFXTextField TF_Ciudad;
+    private JFXComboBox<String> CB_Ciudad;
+
+    @FXML
+    private JFXComboBox CB_TipoPlan;
 
     @FXML
     private JFXTextField TF_Celular;
@@ -107,7 +111,7 @@ public class verClientePane implements Initializable{
         TF_Nombres.setText(s.getNombres());
         TF_Cedula.setText(s.getCelular());
         TF_Celular.setText(s.getCelular());
-        TF_Ciudad.setText(s.getCiudad());
+        CB_Ciudad.getSelectionModel().select(s.getCiudad());
         TF_Copatrocinador.setText(s.getCoPatrocinador());
         TF_FechaRegistro.setValue(s.getFechaRegistro());
         TF_Direccion.setText(s.getDireccion());
@@ -120,7 +124,7 @@ public class verClientePane implements Initializable{
         TF_Nombres.setEditable(false);
         TF_Cedula.setEditable(false);
         TF_Celular.setEditable(false);
-        TF_Ciudad.setEditable(false);
+        CB_Ciudad.setEditable(false);
         TF_Copatrocinador.setEditable(false);
         TF_FechaRegistro.setDisable(true);
         TF_Direccion.setEditable(false);

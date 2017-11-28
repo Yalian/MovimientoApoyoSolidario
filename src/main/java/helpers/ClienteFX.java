@@ -25,11 +25,10 @@ public class ClienteFX extends RecursiveTreeObject<ClienteFX> {
 
     SimpleStringProperty direccion;
 
-    SimpleIntegerProperty patrocinadorID;
-
     SimpleStringProperty patrocinador;
 
     SimpleStringProperty coPatrocinador;
+
 
     LocalDate fechaRegistro;
 
@@ -39,7 +38,7 @@ public class ClienteFX extends RecursiveTreeObject<ClienteFX> {
 
 
     public ClienteFX(int id, String cedula, String nombres, String apellidos, String ciudad, String celular,
-                     String correo, String direccion,int patrocinadorID, String patrocinador, String coPatrocinador, LocalDate fechaRegistro) {
+                     String correo, String direccion, String patrocinador, String coPatrocinador, LocalDate fechaRegistro) {
         this.id = new SimpleIntegerProperty(id);
         this.cedula = new SimpleStringProperty(cedula);
         this.nombres = new SimpleStringProperty(nombres);
@@ -48,7 +47,6 @@ public class ClienteFX extends RecursiveTreeObject<ClienteFX> {
         this.celular = new SimpleStringProperty(celular);
         this.correo = new SimpleStringProperty(correo);
         this.direccion = new SimpleStringProperty(direccion);
-        this.patrocinadorID = new SimpleIntegerProperty(patrocinadorID);
         this.patrocinador = new SimpleStringProperty(patrocinador);
         this.coPatrocinador = new SimpleStringProperty(coPatrocinador);
         this.fechaRegistro = fechaRegistro;

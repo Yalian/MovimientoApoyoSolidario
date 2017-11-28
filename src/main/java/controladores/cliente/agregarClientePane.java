@@ -33,7 +33,7 @@ public class agregarClientePane implements Initializable{
     private JFXTextField TF_Apellidos;
 
     @FXML
-    private JFXTextField TF_Ciudad;
+    private JFXComboBox<String> CB_Ciudad;
 
     @FXML
     private JFXTextField TF_Celular;
@@ -72,16 +72,12 @@ public class agregarClientePane implements Initializable{
         alert.setContentText(e);
 
         alert.showAndWait();
-
     }
 
     @FXML
     void aceptarRegistro(ActionEvent event) {
         if (TF_Nombres.getText().equalsIgnoreCase("")) {
             Error("Por favor ingrese un nombre");
-        }
-        else if (TF_Ciudad.getText().equalsIgnoreCase("")) {
-            Error("Por favor ingrese una Ciudad");
         }
         else if (CB_Patrocinador.getSelectionModel().getSelectedItem() == null) {
             Error("Por favor seleccione un Patrocinador");
@@ -92,9 +88,18 @@ public class agregarClientePane implements Initializable{
         else if (TF_Correo.getText().equalsIgnoreCase("")) {
             Error("Por favor ingrese un correo");
         }else {
-            Cliente e = new Cliente(TF_Cedula.getText(),TF_Nombres.getText(),TF_Apellidos.getText(),TF_Ciudad.getText(),
+            Cliente e = new Cliente(
+                    TF_Cedula.getText(),
+                    TF_Nombres.getText(),
+                    TF_Apellidos.getText(),
+                    CB_Ciudad.getSelectionModel().getSelectedItem(),
                     CB_Patrocinador.getSelectionModel().getSelectedItem().getId(),
-                    CB_Patrocinador.getSelectionModel().getSelectedItem().getPatrocinadorID(),TF_Celular.getText(),TF_Correo.getText(),TF_Direccion.getText(),
+                    CB_Patrocinador.getSelectionModel().getSelectedItem().getNombres(),
+                    Data.findClienteByID(CB_Patrocinador.getSelectionModel().getSelectedItem().getId()).getCoPatrocinador(),
+                    Data.findClienteByID(CB_Patrocinador.getSelectionModel().getSelectedItem().getId()).getID_CoPatrocinador(),
+                    TF_Celular.getText(),
+                    TF_Correo.getText(),
+                    TF_Direccion.getText(),
                     TF_FechaRegistro.getValue());
 
             Data.persist(e);
@@ -105,7 +110,6 @@ public class agregarClientePane implements Initializable{
 
             stage.close();
         }
-
     }
 
 
@@ -113,7 +117,6 @@ public class agregarClientePane implements Initializable{
     void cancelarRegistro(ActionEvent event) {
         Stage stage = (Stage) BTN_Cancelar.getScene().getWindow();
         stage.close();
-
     }
 
 
@@ -123,8 +126,6 @@ public class agregarClientePane implements Initializable{
         CB_Patrocinador.setItems(Data.getClientes());
 
         new AutoComplete<ClienteFX>(CB_Patrocinador);
-
-
     }
 
 }

@@ -13,7 +13,6 @@ public class Cliente implements Serializable{
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue
     @Column(name = "ID_Cliente")
     int ID_Cliente;
 
@@ -37,6 +36,9 @@ public class Cliente implements Serializable{
 
     @Column(name = "CO_PATROCINADOR")
     String coPatrocinador = "";
+
+    @Column(name = "ID_CoPatrocinador")
+    int ID_CoPatrocinador;
 
     @Column(name = "CELULAR")
     String celular = "";
@@ -79,29 +81,35 @@ public class Cliente implements Serializable{
     public Cliente(){}
 
 
-    public Cliente(String cedula, String nombres, String apellidos, String ciudad, int patrocinadorID, String patrocinador,
-                   String coPatrocinador, String celular, String correo, String direccion, LocalDate fechaRegistro) {
+    public Cliente(String cedula, String nombres, String apellidos, String ciudad, int ID_Patrocinador, String patrocinador, String coPatrocinador, int ID_CoPatrocinador, String celular, String correo, String direccion, LocalDate fechaRegistro) {
         this.cedula = cedula;
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.ciudad = ciudad;
-        this.ID_Patrocinador = patrocinadorID;
+        this.ID_Patrocinador = ID_Patrocinador;
         this.patrocinador = patrocinador;
         this.coPatrocinador = coPatrocinador;
+        this.ID_CoPatrocinador = ID_CoPatrocinador;
         this.celular = celular;
         this.correo = correo;
         this.direccion = direccion;
         this.fechaRegistro = fechaRegistro;
     }
 
+    public Cliente(String cedula, String nombres, String apellidos, String ciudad, String celular, String correo, String direccion) {
+        this.cedula = cedula;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.ciudad = ciudad;
+        this.celular = celular;
+        this.correo = correo;
+        this.direccion = direccion;
+    }
+
     public Cliente(String nombres) {
         this.nombres = nombres;
         this.ID_Patrocinador = 0;
     }
-
-
-
-
 
     public Byte[] getCedulaPic() {
         return cedulaPic;
@@ -173,6 +181,14 @@ public class Cliente implements Serializable{
 
     public void setCoPatrocinador(String coPatrocinador) {
         this.coPatrocinador = coPatrocinador;
+    }
+
+    public int getID_CoPatrocinador() {
+        return ID_CoPatrocinador;
+    }
+
+    public void setID_CoPatrocinador(int ID_CoPatrocinador) {
+        this.ID_CoPatrocinador = ID_CoPatrocinador;
     }
 
     public String getCelular() {

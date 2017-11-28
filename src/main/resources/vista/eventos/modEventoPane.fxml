@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import com.jfoenix.controls.JFXTimePicker?>
@@ -13,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.planes.verEvento">
+<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.eventos.modEvento">
    <children>
       <VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="300.0" spacing="20.0" HBox.hgrow="SOMETIMES">
          <children>
@@ -24,14 +25,14 @@
                <children>
                   <HBox spacing="10.0">
                      <children>
-                        <JFXTimePicker fx:id="hora" disable="true" />
-                        <JFXDatePicker fx:id="fecha" disable="true" editable="false" maxWidth="1.7976931348623157E308" HBox.hgrow="SOMETIMES" />
+                        <JFXTimePicker fx:id="hora" editable="true" />
+                        <JFXDatePicker fx:id="fecha" maxWidth="1.7976931348623157E308" HBox.hgrow="SOMETIMES" />
                      </children>
                   </HBox>
-                  <JFXTextField fx:id="ciudad" editable="false" focusColor="#277c5b" labelFloat="true" promptText="Ciudad" unFocusColor="#39a67f" />
-                  <JFXTextField fx:id="direccion" editable="false" focusColor="#277c5b" labelFloat="true" promptText="Direccion" unFocusColor="#39a67f" />
-                  <JFXTextField fx:id="responsable" editable="false" focusColor="#277c5b" labelFloat="true" layoutX="20.0" layoutY="125.0" promptText="Responsable del Dinero" unFocusColor="#39a67f" />
-                  <JFXTextField fx:id="presentador" editable="false" focusColor="#277c5b" labelFloat="true" layoutX="20.0" layoutY="125.0" promptText="Presentador" unFocusColor="#39a67f" />
+                  <JFXComboBox fx:id="CB_Ciudad" focusColor="#277c5b" labelFloat="true" maxWidth="1.7976931348623157E308" promptText="Ciudad" unFocusColor="#39a67f" />
+                  <JFXTextField fx:id="direccion" focusColor="#277c5b" labelFloat="true" promptText="Direccion" unFocusColor="#39a67f" />
+                  <JFXTextField fx:id="responsable" focusColor="#277c5b" labelFloat="true" layoutX="20.0" layoutY="125.0" promptText="Responsable" unFocusColor="#39a67f" />
+                  <JFXTextField fx:id="presentador" focusColor="#277c5b" labelFloat="true" layoutX="20.0" layoutY="125.0" promptText="Presentador" unFocusColor="#39a67f" />
                </children>
             </VBox>
             <Separator prefWidth="200.0" VBox.vgrow="SOMETIMES" />
@@ -39,8 +40,7 @@
                <children>
                   <VBox alignment="CENTER" spacing="10.0" HBox.hgrow="SOMETIMES">
                      <children>
-                        <JFXButton buttonType="RAISED" onAction="#enviarCorreos" text="Enviar correos" textAlignment="CENTER" wrapText="true" />
-                        <JFXButton buttonType="RAISED" layoutX="31.0" layoutY="10.0" onAction="#ingresarDatos" text="Ingresar Datos" textAlignment="CENTER" wrapText="true" />
+                        <JFXButton buttonType="RAISED" layoutX="31.0" layoutY="10.0" onAction="#modificar" text="Actualizar" textAlignment="CENTER" wrapText="true" />
                      </children>
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" />
@@ -68,7 +68,7 @@
                   <Font name="Lucida Sans Regular" size="14.0" />
                </font>
             </Label>
-            <Accordion fx:id="acordion">
+            <Accordion fx:id="acordion" disable="true">
               <panes>
                 <TitledPane animated="false" text="Corte del dia">
                      <content>

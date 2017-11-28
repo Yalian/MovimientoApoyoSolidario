@@ -9,7 +9,6 @@ import java.io.Serializable;
 public class Cosecha implements Serializable{
 
     @Id
-    @GeneratedValue
     @Column(name = "ID_Cosecha")
     int ID_Cosecha;
 

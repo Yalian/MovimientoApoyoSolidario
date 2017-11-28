@@ -1,4 +1,4 @@
-package controladores.planes;
+package controladores.eventos;
 
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;

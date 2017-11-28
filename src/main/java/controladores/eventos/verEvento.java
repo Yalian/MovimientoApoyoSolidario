@@ -1,5 +1,6 @@
-package controladores.planes;
+package controladores.eventos;
 
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXTimePicker;
@@ -32,6 +33,9 @@ public class verEvento implements Initializable{
 
     @FXML
     private JFXTextField presentador;
+
+    @FXML
+    private JFXComboBox CB_TipoPlan;
 
     @FXML
     private JFXTextField corteSiembras;
@@ -112,7 +116,6 @@ public class verEvento implements Initializable{
         if (!plan.isDatosIngresados()){
             acordion.setDisable(true);
         }
-
         hora.setValue(plan.getHora());
         fecha.setValue(plan.getFecha());
         ciudad.setText(plan.getCiudad());
