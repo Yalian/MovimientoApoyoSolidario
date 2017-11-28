@@ -9,6 +9,7 @@ import java.io.Serializable;
 public class Cosecha implements Serializable{
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID_Cosecha")
     int ID_Cosecha;
 

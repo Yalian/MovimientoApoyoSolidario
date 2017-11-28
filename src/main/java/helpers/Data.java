@@ -10,6 +10,7 @@ import modelo.Planes;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.io.*;
 import java.util.List;
 
 public class Data {
@@ -248,6 +249,35 @@ public class Data {
         em.getTransaction().commit();
 
         em.close();
+    }
+
+    public static void agregarFoto(int IDCliente, File foto){
+        EntityManager em  = emf.createEntityManager();
+        Cliente cliente = em.find(Cliente.class, IDCliente);
+
+        em.getTransaction().begin();
+
+
+        byte[] picInBytes = new byte[(int) foto.length()];
+        FileInputStream fileInputStream;
+        try {
+            fileInputStream = new FileInputStream(foto);
+            fileInputStream.read(picInBytes);
+            fileInputStream.close();
+            cliente.setCedulaPic(picInBytes);
+
+            em.getTransaction().commit();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        em.close();
+
+
+
     }
 
     public static void mergePlanByID(int s, Evento p){

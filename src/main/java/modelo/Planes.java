@@ -8,6 +8,7 @@ import java.io.Serializable;
 public class Planes implements Serializable{
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID_Planes")
     int ID;
 

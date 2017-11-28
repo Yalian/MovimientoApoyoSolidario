@@ -95,7 +95,7 @@
                   <Insets right="20.0" />
                </padding>
             </HBox>
-            <JFXTreeTableView fx:id="TV_Principal" prefHeight="283.0" prefWidth="398.0" tableMenuButtonVisible="true" VBox.vgrow="SOMETIMES">
+            <JFXTreeTableView fx:id="TV_Principal" onMouseClicked="#verCliente" prefHeight="283.0" prefWidth="398.0" tableMenuButtonVisible="true" VBox.vgrow="SOMETIMES">
                <columnResizePolicy>
                   <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>

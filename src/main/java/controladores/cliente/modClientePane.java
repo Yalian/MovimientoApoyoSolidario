@@ -1,19 +1,24 @@
 package controladores.cliente;
 
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import helpers.Data;
 import helpers.QR;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
 import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import modelo.Cliente;
 
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -58,8 +63,24 @@ public class modClientePane implements Initializable{
     @FXML
     private ImageView codigoQR;
 
+    @FXML
+    private ImageView cedulaPic;
+
 
     int id;
+
+    @FXML
+    void cargarImagen(ActionEvent event) {
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setSelectedExtensionFilter(
+                    new FileChooser.ExtensionFilter("Image PNG","*.png"));
+
+            File file = fileChooser.showOpenDialog(BTN_Cerrar.getScene().getWindow());
+
+            Data.agregarFoto(id,file);
+
+
+    }
 
     @FXML
     void cerrarVista(ActionEvent event) {
@@ -117,5 +138,16 @@ public class modClientePane implements Initializable{
         TXT_ID.setEditable(false);
 
         QR.displayImage(codigoQR,s.getID_Cliente());
+
+        byte[] bytes = Data.findClienteByID(id).getCedulaPic();
+
+        if (bytes != null){
+            try {
+                BufferedImage img = ImageIO.read(new ByteArrayInputStream(bytes));
+                cedulaPic.setImage(SwingFXUtils.toFXImage(img,null));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

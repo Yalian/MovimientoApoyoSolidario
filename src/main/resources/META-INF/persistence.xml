@@ -8,6 +8,9 @@
 
         <class>modelo.Cliente</class>
         <class>modelo.Evento</class>
+        <class>modelo.Planes</class>
+        <class>modelo.Siembra</class>
+        <class>modelo.Cosecha</class>
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />

@@ -56,7 +56,7 @@
             <Insets left="10.0" right="10.0" top="20.0" />
          </padding>
          <children>
-            <ImageView fitHeight="170.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="SOMETIMES" />
+            <ImageView fx:id="cedulaPic" fitHeight="150.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="SOMETIMES" />
             <ImageView fx:id="codigoQR" fitHeight="150.0" fitWidth="150.0" onMouseClicked="#guardarQR" pickOnBounds="true" preserveRatio="true" />
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
                <children>

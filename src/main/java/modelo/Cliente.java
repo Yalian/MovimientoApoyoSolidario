@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Entity
@@ -13,6 +14,7 @@ public class Cliente implements Serializable{
     private static final long serialVersionUID = 1L;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID_Cliente")
     int ID_Cliente;
 
@@ -54,7 +56,7 @@ public class Cliente implements Serializable{
 
     @Lob
     @Column(name = "CEDULA_PIC")
-    Byte[] cedulaPic;
+    byte[] cedulaPic;
 
 
     //**********************************
@@ -111,11 +113,11 @@ public class Cliente implements Serializable{
         this.ID_Patrocinador = 0;
     }
 
-    public Byte[] getCedulaPic() {
+    public byte[] getCedulaPic() {
         return cedulaPic;
     }
 
-    public void setCedulaPic(Byte[] cedulaPic) {
+    public void setCedulaPic(byte[] cedulaPic) {
         this.cedulaPic = cedulaPic;
     }
 
@@ -222,17 +224,22 @@ public class Cliente implements Serializable{
     @Override
     public String toString() {
         return "Cliente{" +
-                "id=" + ID_Cliente +
+                "ID_Cliente=" + ID_Cliente +
                 ", cedula='" + cedula + '\'' +
                 ", nombres='" + nombres + '\'' +
                 ", apellidos='" + apellidos + '\'' +
                 ", ciudad='" + ciudad + '\'' +
+                ", ID_Patrocinador=" + ID_Patrocinador +
                 ", patrocinador='" + patrocinador + '\'' +
                 ", coPatrocinador='" + coPatrocinador + '\'' +
+                ", ID_CoPatrocinador=" + ID_CoPatrocinador +
                 ", celular='" + celular + '\'' +
                 ", correo='" + correo + '\'' +
                 ", direccion='" + direccion + '\'' +
                 ", fechaRegistro=" + fechaRegistro +
+                ", fase=" + fase +
+                ", visitante=" + visitante +
+                ", asistencias=" + Arrays.toString(asistencias) +
                 '}';
     }
 }

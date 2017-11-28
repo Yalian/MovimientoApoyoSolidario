@@ -12,6 +12,7 @@ import java.util.List;
 public class Evento implements Serializable{
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID_Planes")
     int ID_Planes;
 

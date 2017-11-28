@@ -8,6 +8,7 @@ import java.io.Serializable;
 public class Siembra implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID_Siembra")
     int ID_Siembra;
 

@@ -72,7 +72,7 @@
                         <Font name="Lucida Sans Regular" size="14.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton accessibleText="contactoVista" prefHeight="43.0" prefWidth="122.0" text="Reportes" textAlignment="CENTER" textFill="WHITE">
+                  <JFXButton accessibleText="planesVista" prefHeight="43.0" prefWidth="122.0" text="Planes" textAlignment="CENTER" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                            <image>

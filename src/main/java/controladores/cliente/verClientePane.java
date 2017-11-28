@@ -6,6 +6,7 @@ import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import helpers.Data;
 import helpers.QR;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,7 +16,11 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import modelo.Cliente;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -62,6 +67,10 @@ public class verClientePane implements Initializable{
 
     @FXML
     private ImageView codigoQR;
+
+
+    @FXML
+    private ImageView cedulaPic;
 
 
     int id;
@@ -131,7 +140,14 @@ public class verClientePane implements Initializable{
         TF_Patrocinador.setEditable(false);
         TF_Correo.setEditable(false);
 
-
-
+        byte[] bytes = Data.findClienteByID(id).getCedulaPic();
+        if (bytes != null){
+            try {
+                BufferedImage img = ImageIO.read(new ByteArrayInputStream(bytes));
+                cedulaPic.setImage(SwingFXUtils.toFXImage(img,null));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
