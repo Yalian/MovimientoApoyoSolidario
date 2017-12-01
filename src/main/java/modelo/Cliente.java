@@ -4,7 +4,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Entity
@@ -75,7 +74,7 @@ public class Cliente implements Serializable{
     List<Siembra> ID_Siembras = new ArrayList<>();
 
     @Column(name = "ASISTENCIAS")
-    LocalDate[] asistencias;
+    ArrayList<LocalDate> asistencias = new ArrayList<>();
 
 
     //*****************************************
@@ -83,7 +82,9 @@ public class Cliente implements Serializable{
     public Cliente(){}
 
 
-    public Cliente(String cedula, String nombres, String apellidos, String ciudad, int ID_Patrocinador, String patrocinador, String coPatrocinador, int ID_CoPatrocinador, String celular, String correo, String direccion, LocalDate fechaRegistro) {
+    public Cliente(String cedula, String nombres, String apellidos, String ciudad, int ID_Patrocinador,
+                   String patrocinador, String coPatrocinador, int ID_CoPatrocinador, String celular,
+                   String correo, String direccion, LocalDate fechaRegistro) {
         this.cedula = cedula;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -111,6 +112,20 @@ public class Cliente implements Serializable{
     public Cliente(String nombres) {
         this.nombres = nombres;
         this.ID_Patrocinador = 0;
+    }
+
+    public String getQrCode(){
+        return nombres+","+ID_Cliente;
+
+    }
+
+
+    public ArrayList<LocalDate> getAsistencias() {
+        return asistencias;
+    }
+
+    public void setAsistencias(ArrayList<LocalDate> asistencias) {
+        this.asistencias = asistencias;
     }
 
     public byte[] getCedulaPic() {
@@ -239,7 +254,6 @@ public class Cliente implements Serializable{
                 ", fechaRegistro=" + fechaRegistro +
                 ", fase=" + fase +
                 ", visitante=" + visitante +
-                ", asistencias=" + Arrays.toString(asistencias) +
                 '}';
     }
 }

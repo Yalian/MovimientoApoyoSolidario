@@ -140,7 +140,7 @@ public class ModClientePane implements Initializable{
         TF_Patrocinador.setEditable(false);
         TXT_ID.setEditable(false);
 
-        QR.displayImage(codigoQR,s.getID_Cliente());
+        QR.displayImage(codigoQR,s.getQrCode());
 
         byte[] bytes = Data.findClienteByID(id).getCedulaPic();
 

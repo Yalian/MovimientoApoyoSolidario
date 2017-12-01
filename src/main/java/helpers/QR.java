@@ -10,13 +10,14 @@ import javafx.scene.image.ImageView;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.awt.image.RenderedImage;
 import java.io.File;
 import java.io.IOException;
 
 public class QR {
 
 
-    public static BufferedImage createQR(int c) {
+    public static BufferedImage createQR(String c) {
 
         QRCodeWriter qrCodeWriter = new QRCodeWriter();
         String code = String.valueOf(c);
@@ -56,15 +57,15 @@ public class QR {
     }
 
 
-    public static void displayImage(ImageView qr, int id){
+    public static void displayImage(ImageView qr, String id){
         qr.setImage(SwingFXUtils.toFXImage(createQR(id), null));
 
 
     }
 
-    public static void saveImage(int image, File path){
+    public static void saveImage(RenderedImage image, File path){
         try {
-            ImageIO.write(createQR(image),"png",path);
+            ImageIO.write(image,"png",path);
 
 
         } catch (IOException e) {

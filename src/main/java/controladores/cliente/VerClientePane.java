@@ -101,7 +101,8 @@ public class VerClientePane implements Initializable{
                     if (!file.getName().contains(".png")){
                         file = new File(file.getAbsolutePath() + ".png");
                     }
-                    QR.saveImage(id,file);
+
+                    QR.saveImage(QR.createQR(Data.findClienteByID(id).getQrCode()),file);
                 }
             }
     }
@@ -127,7 +128,7 @@ public class VerClientePane implements Initializable{
         TF_Patrocinador.setText(s.getPatrocinador());
         TF_Correo.setText(s.getCorreo());
 
-        QR.displayImage(codigoQR,s.getID_Cliente());
+        QR.displayImage(codigoQR,s.getQrCode());
 
         TF_Apellidos.setEditable(false);
         TF_Nombres.setEditable(false);

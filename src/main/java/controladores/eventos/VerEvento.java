@@ -9,9 +9,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Accordion;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import modelo.Evento;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -107,12 +109,20 @@ public class VerEvento implements Initializable{
 
     @FXML
     void ingresarDatos(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Leer Datos");
+
+        File file = fileChooser.showOpenDialog(registros.getScene().getWindow());
+
+        if (file != null) {
+            Data.procesarData(file,eventoID);
+        }
 
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Evento plan = Data.findPlanByID(eventoID);
+        Evento plan = Data.findEventoByID(eventoID);
         if (!plan.isDatosIngresados()){
             acordion.setDisable(true);
         }

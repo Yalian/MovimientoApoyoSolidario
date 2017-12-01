@@ -1,22 +1,33 @@
 package helpers;
 
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import modelo.Cliente;
-import modelo.Evento;
-import modelo.Planes;
+import javafx.scene.shape.Path;
+import modelo.*;
 
+import javax.jws.WebParam;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.io.*;
+import java.lang.reflect.Type;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
+
+import static java.nio.charset.StandardCharsets.UTF_8;
 
 public class Data {
 
     private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("aplicacion");
 
+    private static final String fileName = "Datos.obj";
 
     public static List<Cliente> getList(){
         EntityManager em  = emf.createEntityManager();
@@ -201,7 +212,7 @@ public class Data {
         return c;
     }
 
-    public static Evento findPlanByID(int s){
+    public static Evento findEventoByID(int s){
         EntityManager em  = emf.createEntityManager();
         System.out.println("Buscando Plan con ID : " + s);
 
@@ -280,6 +291,62 @@ public class Data {
 
     }
 
+    public static List<Modelo> leerDatos(File p){
+        try {
+            String fileReader = new FileReader(p).toString();
+            byte[] encoded = Files.readAllBytes(Paths.get(p.toURI()));
+            String json= new String(encoded, StandardCharsets.UTF_8);
+
+            Type listType = new TypeToken<ArrayList<Modelo>>(){}.getType();
+
+            List<Modelo> constantes = new Gson().fromJson(json,listType);
+
+            System.out.println(constantes);
+
+
+            return constantes;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static void procesarData(File obj,int id){
+        EntityManager em  = emf.createEntityManager();
+        em.getTransaction().begin();
+
+        List<Modelo> datos = leerDatos(obj);
+
+        for (Modelo dato : datos){
+            Cliente cliente = findClienteByID(dato.getId());
+            Evento evento = findEventoByID(id);
+            switch (dato.getTipo()){
+                case "Entrega":
+                    Cosecha cosecha = new Cosecha(dato.getMonto(),cliente,evento);
+                    em.persist(cosecha);
+                    break;
+                case "Recepcion":
+                    if (dato.isBTC()){
+                        Siembra siembra = new Siembra(cliente,evento,true,dato.getMonto());
+                    }else {
+                        Siembra siembra = new Siembra(cliente,evento,dato.getMonto());
+                    }
+                    break;
+                case "Visitante":
+                    cliente.getAsistencias().add(evento.getFecha());
+                    break;
+            }
+        }
+
+        em.getTransaction().commit();
+        em.close();
+
+
+
+
+
+    }
+
 
 
     public static void mergePlanByID(int s, Evento p){
@@ -300,6 +367,9 @@ public class Data {
 
         em.close();
     }
+
+
+
 
 
 

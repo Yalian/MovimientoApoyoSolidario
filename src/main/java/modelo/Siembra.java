@@ -23,9 +23,6 @@ public class Siembra implements Serializable {
     @Column(name = "Tipo_BTC")
     boolean btc = false;
 
-    @Column(name = "Cartera_BTC")
-    String cartera = "";
-
     @Column(name = "MONTO")
     double monto;
 
@@ -40,11 +37,10 @@ public class Siembra implements Serializable {
         this.monto = monto;
     }
 
-    public Siembra(Cliente ID_Cliente, Evento ID_Evento, boolean btc, String cartera, double monto) {
+    public Siembra(Cliente ID_Cliente, Evento ID_Evento, boolean btc, double monto) {
         this.ID_Cliente = ID_Cliente;
         this.ID_Evento = ID_Evento;
         this.btc = btc;
-        this.cartera = cartera;
         this.monto = monto;
     }
 
@@ -74,14 +70,6 @@ public class Siembra implements Serializable {
 
     public void setBtc(boolean btc) {
         this.btc = btc;
-    }
-
-    public String getCartera() {
-        return cartera;
-    }
-
-    public void setCartera(String cartera) {
-        this.cartera = cartera;
     }
 
     public double getMonto() {

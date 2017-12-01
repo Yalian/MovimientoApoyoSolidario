@@ -119,7 +119,7 @@ public class ModEvento implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Evento evento = Data.findPlanByID(idEvento);
+        Evento evento = Data.findEventoByID(idEvento);
         CB_Ciudad.getItems().setAll(Preferencias.leer().getCiudades());
 
         hora.setValue(evento.getHora());

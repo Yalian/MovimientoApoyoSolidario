@@ -24,6 +24,7 @@ public class Preferencias {
         }
     }
 
+
     public static Constantes leer(){
         ObjectInputStream entrada;
         try {

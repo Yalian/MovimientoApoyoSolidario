@@ -17,11 +17,12 @@
 		<level name="Maven: dom4j:dom4j:1.6.1" value="project"/>
 		<level name="Maven: org.hibernate.common:hibernate-commons-annotations:5.0.1.Final" value="project"/>
 		<level name="Maven: javax.persistence:persistence-api:1.0.2" value="project"/>
+		<level name="Maven: org.hibernate:hibernate-java8:5.2.12.Final" value="project"/>
 		<level name="Maven: org.hibernate:hibernate-entitymanager:5.2.12.Final" value="project"/>
 		<level name="Maven: net.bytebuddy:byte-buddy:1.6.14" value="project"/>
 		<level name="Maven: com.h2database:h2:1.4.196" value="project"/>
 		<level name="Maven: com.jfoenix:jfoenix:1.10.0" value="project"/>
-		<level name="Maven: org.hibernate:hibernate-java8:5.2.12.Final" value="project"/>
+		<level name="Maven: com.google.code.gson:gson:2.8.2" value="project"/>
 		<level name="Maven: com.google.zxing:core:3.3.0" value="project"/>
 	</levels>
 </component>
