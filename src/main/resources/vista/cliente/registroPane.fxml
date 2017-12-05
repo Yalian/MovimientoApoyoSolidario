@@ -69,8 +69,8 @@
                   </JFXButton>
                </children>
             </VBox>
-            <Separator prefWidth="200.0" />
-            <JFXButton fx:id="btn_cargarCSV" graphicTextGap="10.0" layoutX="17.0" layoutY="238.0" prefHeight="45.0" prefWidth="186.0" text="Cargar desde CSV" textAlignment="CENTER" textFill="#39a67f">
+            <Separator prefWidth="200.0" visible="false" />
+            <JFXButton fx:id="btn_cargarCSV" graphicTextGap="10.0" layoutX="17.0" layoutY="238.0" prefHeight="45.0" prefWidth="186.0" text="Cargar desde CSV" textAlignment="CENTER" textFill="#39a67f" visible="false">
                <graphic>
                   <ImageView fitHeight="33.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                      <image>

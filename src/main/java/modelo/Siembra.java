@@ -1,5 +1,7 @@
 package modelo;
 
+import org.h2.table.Plan;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -19,6 +21,10 @@ public class Siembra implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ID_Evento")
     Evento ID_Evento;
+
+
+    @Column(name = "Plan")
+    Planes plan;
 
     @Column(name = "Tipo_BTC")
     boolean btc = false;
@@ -78,5 +84,14 @@ public class Siembra implements Serializable {
 
     public void setMonto(double monto) {
         this.monto = monto;
+    }
+
+    @Override
+    public String toString() {
+        return "Siembra{" +
+                "ID_Siembra=" + ID_Siembra +
+                ", btc=" + btc +
+                ", monto=" + monto +
+                '}';
     }
 }

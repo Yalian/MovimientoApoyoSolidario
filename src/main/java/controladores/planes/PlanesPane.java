@@ -55,7 +55,7 @@ public class PlanesPane implements Initializable{
     private JFXTreeTableView<PlanesFX> TV_Planes;
 
     private void refrescar(){
-        ObservableList<PlanesFX> data = Data.getPlanes();
+        ObservableList<PlanesFX> data = Data.getPlanesFX();
         TreeItem<PlanesFX> root = new RecursiveTreeItem<>(data, RecursiveTreeObject::getChildren);
         TV_Planes.setRoot(root);
         TV_Planes.setShowRoot(false);

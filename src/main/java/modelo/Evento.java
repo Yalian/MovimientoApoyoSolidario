@@ -42,11 +42,18 @@ public class Evento implements Serializable{
     @Column(name = "Siembras")
     List<Siembra> siembras = new ArrayList<>();
 
+    @OneToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "Asistencias")
+    Asistencias asistencias;
+
     @Column(name = "CORTE_DIA")
-    double corteDia;
+    double corteDia = 0;
 
     @Column(name = "DATOS_INGRESADOS")
     boolean datosIngresados = false;
+
+    @Column(name = "Plan")
+    Planes plan;
 
     public Evento() {
     }
@@ -59,6 +66,24 @@ public class Evento implements Serializable{
         this.direccion = direccion;
         this.responDinero = responDinero;
         this.presentador = presentador;
+        asistencias = new Asistencias(this,this.fecha);
+    }
+
+    public Asistencias getAsistencias() {
+        return asistencias;
+    }
+
+    public void setAsistencias(Asistencias asistencias) {
+        this.asistencias = asistencias;
+    }
+
+
+    public Planes getPlan() {
+        return plan;
+    }
+
+    public void setPlan(Planes plan) {
+        this.plan = plan;
     }
 
     public int getID_Planes() {
@@ -155,8 +180,6 @@ public class Evento implements Serializable{
                 ", direccion='" + direccion + '\'' +
                 ", responDinero='" + responDinero + '\'' +
                 ", presentador='" + presentador + '\'' +
-                ", cosechas=" + cosechas +
-                ", siembras=" + siembras +
                 ", corteDia=" + corteDia +
                 ", datosIngresados=" + datosIngresados +
                 '}';

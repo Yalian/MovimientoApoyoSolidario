@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import modelo.Cliente;
+import modelo.Planes;
 
 
 import java.net.URL;
@@ -49,7 +50,7 @@ public class AgregarClientePane implements Initializable{
     private JFXTextField TF_Patrocinador;
 
     @FXML
-    private JFXComboBox<?> CB_Planes;
+    private JFXComboBox<Planes> CB_Planes;
 
     @FXML
     private DatePicker TF_FechaRegistro;
@@ -103,6 +104,10 @@ public class AgregarClientePane implements Initializable{
                     TF_Direccion.getText(),
                     TF_FechaRegistro.getValue());
 
+            if (CB_Planes.getSelectionModel().getSelectedItem() != null){
+                e.getPlanes().add(CB_Planes.getSelectionModel().getSelectedItem());
+            }
+
             Data.persist(e);
 
             System.out.println("Agregado correctamente");
@@ -112,6 +117,7 @@ public class AgregarClientePane implements Initializable{
             stage.close();
         }
     }
+
 
 
     @FXML
@@ -125,7 +131,9 @@ public class AgregarClientePane implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         TF_FechaRegistro.setValue(LocalDate.now());
         CB_Patrocinador.setItems(Data.getClientes());
+        CB_Planes.getItems().setAll(Data.getPlanes());
         CB_Ciudad.getItems().addAll(Preferencias.leer().getCiudades());
+
 
         new AutoComplete<ClienteFX>(CB_Patrocinador);
     }

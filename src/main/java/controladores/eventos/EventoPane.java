@@ -5,6 +5,8 @@ import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import helpers.Data;
 import helpers.EventoFX;
 import helpers.Preferencias;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,6 +17,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.TreeItem;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import modelo.Evento;
 
 import java.io.IOException;
@@ -43,10 +46,10 @@ public class EventoPane implements Initializable {
     private JFXButton BT_Add;
 
     @FXML
-    private JFXTextField TF_Presentador;
+    private JFXComboBox<String> CB_Presentador;
 
     @FXML
-    private JFXTextField TF_Responsable;
+    private JFXComboBox<String> CB_Responsable;
 
     @FXML
     private JFXTextField TF_ID;
@@ -67,18 +70,17 @@ public class EventoPane implements Initializable {
                 TP_HoraEvento.getValue(),
                 CB_Ciudad.getSelectionModel().getSelectedItem(),
                 TF_Direccion.getText(),
-                TF_Responsable.getText(),
-                TF_Presentador.getText()
+                CB_Responsable.getSelectionModel().getSelectedItem(),
+                CB_Presentador.getSelectionModel().getSelectedItem()
         );
 
         Data.persist(evento);
-
         refrescar();
     }
 
 
     @FXML
-    void eliminarPlan(ActionEvent event) {
+    void eliminarEvento(ActionEvent event) {
         int id = TV_Evento.getSelectionModel().getSelectedItem().getValue().getID_Planes();
         Data.removeEventoByID(id);
         refrescar();
@@ -90,13 +92,11 @@ public class EventoPane implements Initializable {
                 TP_HoraEvento.setValue(LocalTime.now());
                 CB_Ciudad.getSelectionModel().clearSelection();
                 TF_Direccion.setText("");
-                TF_Responsable.setText("");
-                TF_Presentador.setText("");
     }
 
 
     @FXML
-    void abrirPlan(MouseEvent event) {
+    void abrirEvento(MouseEvent event) {
         if (event.getClickCount() == 2) {
             try {
                 FXMLLoader loader=new FXMLLoader(getClass().getResource("/vista/eventos/verEventoPane.fxml"));
@@ -126,7 +126,7 @@ public class EventoPane implements Initializable {
 
 
     @FXML
-    void modificarPlan(ActionEvent event) {
+    void modificarEvento(ActionEvent event) {
             try {
                 FXMLLoader loader=new FXMLLoader(getClass().getResource("/vista/eventos/modEventoPane.fxml"));
                 loader.setControllerFactory(controllerClass -> {
@@ -153,7 +153,7 @@ public class EventoPane implements Initializable {
     }
 
     private void refrescar(){
-        ObservableList<EventoFX> data = Data.getEventos();
+        ObservableList<EventoFX> data = Data.getEventosFX();
         TreeItem<EventoFX> root = new RecursiveTreeItem<>(data, RecursiveTreeObject::getChildren);
         TV_Evento.setRoot(root);
         TV_Evento.setShowRoot(false);
@@ -180,9 +180,20 @@ public class EventoPane implements Initializable {
         TV_Evento.getColumns().setAll(idCol,fechaCol,direccionCol,presentadorCol,responsableCol);
     }
 
+    private void rellenarCB(){
+        CB_Ciudad.getItems().setAll(Preferencias.leer().getCiudades());
+        CB_Presentador.getItems().setAll(Preferencias.leer().getPresentadores());
+        CB_Responsable.getItems().setAll(Preferencias.leer().getResponsables());
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        CB_Ciudad.getItems().setAll(Preferencias.leer().getCiudades());
+        rellenarCB();
+
+        Timeline fiveSecondsWonder = new Timeline(new KeyFrame(Duration.seconds(10), event -> rellenarCB()));
+        fiveSecondsWonder.setCycleCount(Timeline.INDEFINITE);
+        fiveSecondsWonder.play();
+
         CB_TipoBusqueda.getItems().setAll("Fecha","Responsable","Dirección");
         DP_FechaEvento.setValue(LocalDate.now());
         TP_HoraEvento.setValue(LocalTime.now());

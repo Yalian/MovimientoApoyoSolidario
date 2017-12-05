@@ -15,6 +15,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import modelo.Cliente;
+import modelo.Planes;
 
 
 import javax.imageio.ImageIO;
@@ -59,6 +60,12 @@ public class ModClientePane implements Initializable{
     private DatePicker TF_FechaRegistro;
 
     @FXML
+    private JFXComboBox<Planes> CB_PlanesDisponibles;
+
+    @FXML
+    private JFXComboBox<Planes> CB_PlanesInscritos;
+
+    @FXML
     private JFXButton BTN_Cerrar;
 
     @FXML
@@ -67,8 +74,25 @@ public class ModClientePane implements Initializable{
     @FXML
     private ImageView cedulaPic;
 
-
     int id;
+
+    @FXML
+    void addPlan(ActionEvent event) {
+        Cliente s = Data.findClienteByID(id);
+
+        //s.getPlanes().add(CB_PlanesDisponibles.getSelectionModel().getSelectedItem());
+
+        Data.addPlan(s,CB_PlanesDisponibles.getSelectionModel().getSelectedItem());
+    }
+
+    @FXML
+    void delPlan(ActionEvent event) {
+        Cliente s = Data.findClienteByID(id);
+
+       // s.getPlanes().remove(CB_PlanesInscritos.getSelectionModel().getSelectedItem());
+
+        Data.removePlan(s,CB_PlanesInscritos.getSelectionModel().getSelectedItem());
+    }
 
     @FXML
     void cargarImagen(ActionEvent event) {
@@ -79,22 +103,17 @@ public class ModClientePane implements Initializable{
             File file = fileChooser.showOpenDialog(BTN_Cerrar.getScene().getWindow());
 
             Data.agregarFoto(id,file);
-
-
     }
 
     @FXML
     void cerrarVista(ActionEvent event) {
         Stage stage = (Stage) BTN_Cerrar.getScene().getWindow();
         stage.close();
-
     }
 
     public void setClientePane(int id){
         this.id = id ;
     }
-
-
 
     @FXML
     void actualizarUsr(ActionEvent event) {
@@ -115,13 +134,14 @@ public class ModClientePane implements Initializable{
         stage.close();
     }
 
-
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Cliente s = Data.findClienteByID(id);
 
-        CB_Ciudad.getItems().addAll(Preferencias.leer().getCiudades());
+        CB_Ciudad.getItems().setAll(Preferencias.leer().getCiudades());
+
+        CB_PlanesInscritos.getItems().setAll(s.getPlanes());
+        CB_PlanesDisponibles.getItems().setAll(Data.getPlanes());
 
         System.out.println(s.toString());
 

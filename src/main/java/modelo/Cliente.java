@@ -1,5 +1,7 @@
 package modelo;
 
+import org.h2.table.Plan;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -67,14 +69,21 @@ public class Cliente implements Serializable{
 
     @OneToMany(mappedBy = "ID_Cliente", cascade = CascadeType.ALL)
     @Column(name = "ID_Cosechas")
-    List<Cosecha> ID_Cosechas = new ArrayList<>();
+    List<Cosecha> ID_Cosechas = new ArrayList<>() ;
 
     @OneToMany(mappedBy ="ID_Cliente", cascade = CascadeType.ALL)
     @Column(name = "ID_Siembras")
-    List<Siembra> ID_Siembras = new ArrayList<>();
+    List<Siembra> ID_Siembras = new ArrayList<>() ;
 
+    @OneToMany(mappedBy = "clientes", cascade = CascadeType.ALL)
     @Column(name = "ASISTENCIAS")
-    ArrayList<LocalDate> asistencias = new ArrayList<>();
+    List<Asistencias> asistencias = new ArrayList<>() ;
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    @JoinColumn(name = "Planes")
+    List<Planes> planes = new ArrayList<>();
+
+
 
 
     //*****************************************
@@ -109,6 +118,7 @@ public class Cliente implements Serializable{
         this.direccion = direccion;
     }
 
+
     public Cliente(String nombres) {
         this.nombres = nombres;
         this.ID_Patrocinador = 0;
@@ -119,12 +129,43 @@ public class Cliente implements Serializable{
 
     }
 
+    public List<Planes> getPlanes() {
+        return planes;
+    }
 
-    public ArrayList<LocalDate> getAsistencias() {
+    public void setPlanes(List<Planes> planes) {
+        this.planes = planes;
+    }
+
+    public boolean isVisitante() {
+        return visitante;
+    }
+
+    public void setVisitante(boolean visitante) {
+        this.visitante = visitante;
+    }
+
+    public List<Cosecha> getID_Cosechas() {
+        return ID_Cosechas;
+    }
+
+    public void setID_Cosechas(List<Cosecha> ID_Cosechas) {
+        this.ID_Cosechas = ID_Cosechas;
+    }
+
+    public List<Siembra> getID_Siembras() {
+        return ID_Siembras;
+    }
+
+    public void setID_Siembras(List<Siembra> ID_Siembras) {
+        this.ID_Siembras = ID_Siembras;
+    }
+
+    public List<Asistencias> getAsistencias() {
         return asistencias;
     }
 
-    public void setAsistencias(ArrayList<LocalDate> asistencias) {
+    public void setAsistencias(List<Asistencias> asistencias) {
         this.asistencias = asistencias;
     }
 
@@ -256,4 +297,5 @@ public class Cliente implements Serializable{
                 ", visitante=" + visitante +
                 '}';
     }
+
 }

@@ -26,8 +26,8 @@
                   </HBox>
                   <JFXComboBox fx:id="CB_Ciudad" labelFloat="true" maxWidth="1.7976931348623157E308" promptText="Ciudad" />
                   <JFXTextField fx:id="TF_Direccion" labelFloat="true" promptText="Direccion" />
-                  <JFXTextField fx:id="TF_Presentador" promptText="Presentador" />
-                  <JFXTextField fx:id="TF_Responsable" labelFloat="true" promptText="Responsable" />
+                  <JFXComboBox fx:id="CB_Presentador" labelFloat="true" maxWidth="1.7976931348623157E308" promptText="Presentador" />
+                  <JFXComboBox fx:id="CB_Responsable" labelFloat="true" maxWidth="1.7976931348623157E308" promptText="Responsable" />
                </children>
                <VBox.margin>
                   <Insets top="30.0" />
@@ -61,7 +61,7 @@
                   <Insets right="20.0" />
                </padding>
             </HBox>
-            <JFXTreeTableView fx:id="TV_Evento" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#abrirPlan" prefHeight="290.0" prefWidth="359.0" showRoot="false" tableMenuButtonVisible="true" VBox.vgrow="SOMETIMES">
+            <JFXTreeTableView fx:id="TV_Evento" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#abrirEvento" prefHeight="290.0" prefWidth="359.0" showRoot="false" tableMenuButtonVisible="true" VBox.vgrow="SOMETIMES">
                <columnResizePolicy>
                   <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
@@ -72,8 +72,8 @@
                   <Insets />
                </VBox.margin>
                <children>
-                  <JFXButton onAction="#modificarPlan" prefHeight="30.0" prefWidth="67.0" text="Modificar" />
-                  <JFXButton layoutX="177.0" layoutY="10.0" onAction="#eliminarPlan" prefHeight="30.0" text="Eliminar" />
+                  <JFXButton onAction="#modificarEvento" prefHeight="30.0" prefWidth="67.0" text="Modificar" />
+                  <JFXButton layoutX="177.0" layoutY="10.0" onAction="#eliminarEvento" prefHeight="30.0" text="Eliminar" />
                </children>
                <padding>
                   <Insets bottom="10.0" />

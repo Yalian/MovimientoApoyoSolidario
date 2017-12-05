@@ -32,8 +32,6 @@ public class Preferencias {
 
             Constantes constantes = (Constantes) entrada.readObject();
 
-            System.out.println(constantes);
-
             entrada.close();
 
             return constantes;

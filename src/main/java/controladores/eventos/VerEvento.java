@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXTimePicker;
+import helpers.Calculos;
 import helpers.Data;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,11 +12,16 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Accordion;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import modelo.Cosecha;
 import modelo.Evento;
+import modelo.Siembra;
 
 import java.io.File;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
+
+import static helpers.Data.getSiembrasPorEvento;
 
 public class VerEvento implements Initializable{
     @FXML
@@ -35,9 +41,6 @@ public class VerEvento implements Initializable{
 
     @FXML
     private JFXTextField presentador;
-
-    @FXML
-    private JFXComboBox CB_TipoPlan;
 
     @FXML
     private JFXTextField corteSiembras;
@@ -64,25 +67,7 @@ public class VerEvento implements Initializable{
     private JFXTextField siembrasUSD;
 
     @FXML
-    private JFXTextField siembrasPrimera;
-
-    @FXML
-    private JFXTextField siembrasSegunda;
-
-    @FXML
-    private JFXTextField siembrasTercera;
-
-    @FXML
     private JFXTextField cosechasTotales;
-
-    @FXML
-    private JFXTextField cosechasPrimera;
-
-    @FXML
-    private JFXTextField cosechasSegunda;
-
-    @FXML
-    private JFXTextField cosechasTercera;
 
     @FXML
     private JFXTextField registros;
@@ -91,6 +76,8 @@ public class VerEvento implements Initializable{
     private Accordion acordion;
 
     int eventoID;
+
+    Calculos.LogicaEvento logica;
 
     public void setEventoID(int eventoID) {
         this.eventoID = eventoID;
@@ -120,12 +107,36 @@ public class VerEvento implements Initializable{
 
     }
 
+    private void rellenar(){
+        corteSiembras.setText(logica.getcSiembras()+"");
+        corteCosechas.setText(logica.getcCosechas()+"");
+        corteBalance.setText(logica.getcBalance()+"");
+
+        asistenciaTotal.setText(logica.getaTotal()+"");
+        asistenciaVisitantes.setText(logica.getaVisitantes()+"");
+        asistenciaActivos.setText(logica.getaActivos()+"");
+
+        siembrasBTC.setText(logica.getsBTC()+"");
+        siembrasUSD.setText(logica.getsUSD()+"");
+
+        cosechasTotales.setText(logica.getcTotal()+"");
+
+        registros.setText(logica.getRegTotales()+"");
+
+    }
+
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Evento plan = Data.findEventoByID(eventoID);
+        logica = new Calculos.LogicaEvento(plan);
+        rellenar();
+
         if (!plan.isDatosIngresados()){
             acordion.setDisable(true);
         }
+
         hora.setValue(plan.getHora());
         fecha.setValue(plan.getFecha());
         ciudad.setText(plan.getCiudad());

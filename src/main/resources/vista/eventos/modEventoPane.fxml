@@ -31,8 +31,8 @@
                   </HBox>
                   <JFXComboBox fx:id="CB_Ciudad" focusColor="#277c5b" labelFloat="true" maxWidth="1.7976931348623157E308" promptText="Ciudad" unFocusColor="#39a67f" />
                   <JFXTextField fx:id="direccion" focusColor="#277c5b" labelFloat="true" promptText="Direccion" unFocusColor="#39a67f" />
-                  <JFXTextField fx:id="responsable" focusColor="#277c5b" labelFloat="true" layoutX="20.0" layoutY="125.0" promptText="Responsable" unFocusColor="#39a67f" />
-                  <JFXTextField fx:id="presentador" focusColor="#277c5b" labelFloat="true" layoutX="20.0" layoutY="125.0" promptText="Presentador" unFocusColor="#39a67f" />
+                  <JFXComboBox fx:id="CB_Presentador" labelFloat="true" maxWidth="1.7976931348623157E308" promptText="Presentador" />
+                  <JFXComboBox fx:id="CB_Responsable" labelFloat="true" maxWidth="1.7976931348623157E308" promptText="Responsable" />
                </children>
             </VBox>
             <Separator prefWidth="200.0" VBox.vgrow="SOMETIMES" />

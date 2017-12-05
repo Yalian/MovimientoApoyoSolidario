@@ -98,21 +98,15 @@
                            <children>
                               <JFXTextField fx:id="siembrasBTC" labelFloat="true" promptText="Siembras en BTC" />
                               <JFXTextField fx:id="siembrasUSD" labelFloat="true" layoutX="20.0" layoutY="20.0" promptText="Siembras en USD" />
-                              <JFXTextField fx:id="siembrasPrimera" labelFloat="true" layoutX="20.0" layoutY="20.0" promptText="Siembras 1° Fase" />
-                              <JFXTextField fx:id="siembrasSegunda" labelFloat="true" layoutX="20.0" layoutY="70.0" promptText="Siembras 2° Fase" />
-                              <JFXTextField fx:id="siembrasTercera" labelFloat="true" layoutX="20.0" layoutY="95.0" promptText="Siembras 3° Fase" />
                            </children>
                         </VBox>
                      </content>
                 </TitledPane>
-                  <TitledPane animated="false" layoutX="10.0" layoutY="60.0" text="Cosecha Totales">
+                  <TitledPane animated="false" layoutX="10.0" layoutY="60.0" text="Cosechas">
                      <content>
                         <VBox prefHeight="73.0" prefWidth="338.0" spacing="10.0">
                            <children>
                               <JFXTextField fx:id="cosechasTotales" labelFloat="true" promptText="Cosechas Totales" />
-                              <JFXTextField fx:id="cosechasPrimera" labelFloat="true" layoutX="20.0" layoutY="20.0" promptText="Cosechas 1° Fase" />
-                              <JFXTextField fx:id="cosechasSegunda" labelFloat="true" layoutX="20.0" layoutY="20.0" promptText="Cosechas 2° Fase" />
-                              <JFXTextField fx:id="cosechasTercera" labelFloat="true" layoutX="20.0" layoutY="70.0" promptText="Cosechas 3° Fase" />
                            </children>
                         </VBox>
                      </content>

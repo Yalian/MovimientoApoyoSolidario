@@ -90,7 +90,6 @@ public class RegistroPaneController implements Initializable {
     void cargarMod(ActionEvent event) {
         try {
             FXMLLoader loader=new FXMLLoader(getClass().getResource("/vista/cliente/modClientePane.fxml"));
-
             loader.setControllerFactory(controllerClass -> {
                 if (controllerClass == ModClientePane.class) {
                     ModClientePane controller = new ModClientePane();

@@ -29,6 +29,7 @@ public class Principal extends Application {
         }
 
 
+
         primaryStage.setOnCloseRequest(t -> {
             Platform.exit();
             System.exit(0);

@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXTimePicker;
+import constant.Constantes;
 import helpers.Data;
 import helpers.Preferencias;
 import javafx.event.ActionEvent;
@@ -30,10 +31,10 @@ public class ModEvento implements Initializable {
     private JFXTextField direccion;
 
     @FXML
-    private JFXTextField responsable;
+    private JFXComboBox<String> CB_Responsable;
 
     @FXML
-    private JFXTextField presentador;
+    private JFXComboBox<String> CB_Presentador;
 
     @FXML
     private Accordion acordion;
@@ -90,7 +91,10 @@ public class ModEvento implements Initializable {
         this.idEvento = idEvento;
     }
 
+
     int idEvento;
+
+
 
     @FXML
     void modificar(ActionEvent event) {
@@ -99,8 +103,8 @@ public class ModEvento implements Initializable {
                 hora.getValue(),
                 CB_Ciudad.getSelectionModel().getSelectedItem(),
                 direccion.getText(),
-                responsable.getText(),
-                presentador.getText()
+                CB_Responsable.getSelectionModel().getSelectedItem(),
+                CB_Presentador.getSelectionModel().getSelectedItem()
         );
         Data.mergePlanByID(idEvento,evento);
 
@@ -120,14 +124,18 @@ public class ModEvento implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Evento evento = Data.findEventoByID(idEvento);
-        CB_Ciudad.getItems().setAll(Preferencias.leer().getCiudades());
+        Constantes constantes = Preferencias.leer();
+
+        CB_Ciudad.getItems().setAll(constantes.getCiudades());
+        CB_Responsable.getItems().setAll(constantes.getResponsables());
+        CB_Presentador.getItems().setAll(constantes.getPresentadores());
 
         hora.setValue(evento.getHora());
         fecha.setValue(evento.getFecha());
         CB_Ciudad.getSelectionModel().select(evento.getCiudad());
         direccion.setText(evento.getDireccion());
-        responsable.setText(evento.getResponDinero());
-        presentador.setText(evento.getPresentador());
+        CB_Responsable.getSelectionModel().select(evento.getResponDinero());
+        CB_Presentador.getSelectionModel().select(evento.getPresentador());
 
     }
 }

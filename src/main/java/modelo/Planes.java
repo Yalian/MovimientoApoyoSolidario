@@ -2,6 +2,8 @@ package modelo;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "PLANES")
@@ -36,6 +38,11 @@ public class Planes implements Serializable{
     @Column(name = "Gratitud_Segunda")
     int bonoGratitudSegundo;
 
+    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "planes",cascade = {CascadeType.ALL})
+    @Column(name = "Clientes")
+    private List<Cliente> clientes = new ArrayList<>();
+
+
     public Planes() {
     }
 
@@ -49,6 +56,14 @@ public class Planes implements Serializable{
         this.bonoCoPatrocinadorSegundo = bonoCoPatrocinadorSegundo;
         this.bonoPersonalSegundo = bonoPersonalSegundo;
         this.bonoGratitudSegundo = bonoGratitudSegundo;
+    }
+
+    public List<Cliente> getClientes() {
+        return clientes;
+    }
+
+    public void setClientes(List<Cliente> clientes) {
+        this.clientes = clientes;
     }
 
     public int getID() {
@@ -117,5 +132,10 @@ public class Planes implements Serializable{
 
     public void setBonoGratitudSegundo(int bonoGratitudSegundo) {
         this.bonoGratitudSegundo = bonoGratitudSegundo;
+    }
+
+    @Override
+    public String toString() {
+        return nombre;
     }
 }

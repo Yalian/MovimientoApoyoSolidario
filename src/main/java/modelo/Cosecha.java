@@ -45,5 +45,11 @@ public class Cosecha implements Serializable{
         this.monto = monto;
     }
 
-
+    @Override
+    public String toString() {
+        return "Cosecha{" +
+                "ID_Cosecha=" + ID_Cosecha +
+                ", monto=" + monto +
+                '}';
+    }
 }

@@ -2,11 +2,13 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTabPane?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
@@ -14,30 +16,33 @@
 
 <HBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.cliente.ModClientePane">
    <children>
-      <VBox prefHeight="431.0" prefWidth="330.0" spacing="15.0" HBox.hgrow="SOMETIMES">
+      <VBox prefHeight="431.0" prefWidth="330.0" spacing="15.0" HBox.hgrow="ALWAYS">
          <children>
-            <HBox spacing="10.0">
+            <VBox spacing="20.0" VBox.vgrow="ALWAYS">
                <children>
-                  <JFXTextField fx:id="TXT_ID" disable="true" editable="false" focusColor="#277c5b" labelFloat="true" promptText="ID" unFocusColor="#39a67f" HBox.hgrow="ALWAYS" />
-                  <JFXTextField fx:id="TF_Cedula" focusColor="#277c5b" labelFloat="true" promptText="Cedula " unFocusColor="#39a67f" HBox.hgrow="ALWAYS" />
+                  <HBox spacing="10.0">
+                     <children>
+                        <JFXTextField fx:id="TXT_ID" disable="true" editable="false" focusColor="#277c5b" labelFloat="true" promptText="ID" unFocusColor="#39a67f" HBox.hgrow="ALWAYS" />
+                        <JFXTextField fx:id="TF_Cedula" focusColor="#277c5b" labelFloat="true" promptText="Cedula " unFocusColor="#39a67f" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="TOP_CENTER" spacing="10.0">
+                     <children>
+                        <JFXTextField fx:id="TF_Nombres" focusColor="#277c5b" labelFloat="true" promptText="Nombres " unFocusColor="#39a67f" HBox.hgrow="ALWAYS" />
+                        <JFXTextField fx:id="TF_Apellidos" focusColor="#277c5b" labelFloat="true" promptText="Apellidos " unFocusColor="#39a67f" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <HBox spacing="10.0">
+                     <children>
+                        <JFXComboBox fx:id="CB_Ciudad" labelFloat="true" maxWidth="1.7976931348623157E308" promptText="Ciudad " HBox.hgrow="ALWAYS" />
+                        <JFXTextField fx:id="TF_Celular" focusColor="#277c5b" labelFloat="true" maxWidth="1.7976931348623157E308" promptText="Celular " unFocusColor="#39a67f" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <JFXTextField fx:id="TF_Correo" focusColor="#277c5b" labelFloat="true" promptText="Correo " unFocusColor="#39a67f" />
+                  <JFXTextField fx:id="TF_Direccion" focusColor="#277c5b" labelFloat="true" promptText="Dirección" unFocusColor="#39a67f" />
                </children>
-            </HBox>
-            <HBox alignment="TOP_CENTER" spacing="10.0">
-               <children>
-                  <JFXTextField fx:id="TF_Nombres" focusColor="#277c5b" labelFloat="true" promptText="Nombres " unFocusColor="#39a67f" HBox.hgrow="ALWAYS" />
-                  <JFXTextField fx:id="TF_Apellidos" focusColor="#277c5b" labelFloat="true" promptText="Apellidos " unFocusColor="#39a67f" HBox.hgrow="ALWAYS" />
-               </children>
-            </HBox>
-            <HBox layoutX="20.0" layoutY="70.0" spacing="10.0">
-               <children>
-                  <JFXComboBox fx:id="CB_Ciudad" labelFloat="true" maxWidth="1.7976931348623157E308" promptText="Ciudad " HBox.hgrow="ALWAYS" />
-                  <JFXTextField fx:id="TF_Celular" focusColor="#277c5b" labelFloat="true" maxWidth="1.7976931348623157E308" promptText="Celular " unFocusColor="#39a67f" HBox.hgrow="ALWAYS" />
-               </children>
-            </HBox>
-            <JFXTextField fx:id="TF_Correo" focusColor="#277c5b" labelFloat="true" promptText="Correo " unFocusColor="#39a67f" />
-            <JFXTextField fx:id="TF_Direccion" focusColor="#277c5b" labelFloat="true" promptText="Dirección" unFocusColor="#39a67f" />
+            </VBox>
             <Separator prefWidth="200.0" />
-            <JFXTextField fx:id="TF_TipoPlan" disable="true" labelFloat="true" promptText="Tipo de plan inscrito" />
             <JFXTextField fx:id="TF_Patrocinador" disable="true" editable="false" focusColor="#277c5b" labelFloat="true" promptText="Patrocinador " unFocusColor="#39a67f" />
             <JFXTextField fx:id="TF_Copatrocinador" disable="true" focusColor="#277c5b" labelFloat="true" promptText="Co - Patrocinador" unFocusColor="#39a67f" />
             <HBox alignment="CENTER" prefHeight="45.0" prefWidth="310.0" spacing="20.0">
@@ -56,20 +61,52 @@
             <Insets left="10.0" right="10.0" top="20.0" />
          </padding>
          <children>
-            <VBox alignment="TOP_CENTER">
-               <children>
-                  <ImageView fx:id="cedulaPic" fitHeight="150.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" />
-                  <JFXButton buttonType="RAISED" onAction="#cargarImagen" prefHeight="25.0" prefWidth="135.0" text="Cargar Imagen" wrapText="true" />
-               </children>
-            </VBox>
-            <ImageView fx:id="codigoQR" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" />
+            <JFXTabPane VBox.vgrow="ALWAYS">
+               <tabs>
+                  <Tab text="Identificacion">
+                    <content>
+                        <VBox alignment="TOP_CENTER">
+                           <children>
+                              <VBox alignment="TOP_CENTER">
+                                 <children>
+                                    <ImageView fx:id="cedulaPic" fitHeight="150.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" />
+                                    <JFXButton buttonType="RAISED" onAction="#cargarImagen" prefHeight="25.0" prefWidth="135.0" text="Cargar Imagen" wrapText="true" />
+                                 </children>
+                              </VBox>
+                              <ImageView fx:id="codigoQR" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" />
+                           </children>
+                        </VBox>
+                    </content>
+                  </Tab>
+                  <Tab text="Planes">
+                    <content>
+                        <VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" spacing="20.0">
+                           <children>
+                              <JFXComboBox fx:id="CB_PlanesInscritos" labelFloat="true" maxWidth="1.7976931348623157E308" promptText="Planes inscritos" />
+                              <Separator prefWidth="200.0" />
+                              <JFXComboBox fx:id="CB_PlanesDisponibles" maxWidth="1.7976931348623157E308" promptText="Planes disponibles" />
+                              <HBox alignment="TOP_CENTER" prefWidth="310.0" spacing="15.0">
+                                 <children>
+                                    <JFXButton buttonType="RAISED" onAction="#addPlan" text="Agregar Plan" />
+                                    <JFXButton buttonType="RAISED" layoutX="10.0" layoutY="10.0" onAction="#delPlan" text="Eliminar Plan" />
+                                 </children>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets left="10.0" right="10.0" top="20.0" />
+                           </padding>
+                        </VBox>
+                    </content>
+                  </Tab>
+               </tabs>
+            </JFXTabPane>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
                <children>
                   <JFXButton buttonType="RAISED" onAction="#actualizarUsr" prefHeight="39.0" prefWidth="97.0" text="Actualizar" textAlignment="CENTER" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="21.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../imgs/icons8_Checkmark_48px.png" />
+                              <Image url="@../../imgs/icons8_Checkmark_48px.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -78,7 +115,7 @@
                      <graphic>
                         <ImageView fitHeight="21.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../imgs/icons8_Delete_48px_1.png" />
+                              <Image url="@../../imgs/icons8_Delete_48px_1.png" />
                            </image>
                         </ImageView>
                      </graphic>
