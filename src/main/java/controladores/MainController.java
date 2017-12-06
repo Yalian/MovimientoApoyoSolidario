@@ -1,6 +1,7 @@
 package controladores;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTabPane;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -36,6 +37,7 @@ public class MainController implements Initializable {
             HBox eventoPane = FXMLLoader.load(getClass().getResource("/vista/eventos/eventoPane.fxml"));
             HBox planesPane = FXMLLoader.load(getClass().getResource("/vista/planes/planesPane.fxml"));
             HBox configuracionPane = FXMLLoader.load(getClass().getResource("/vista/configuracionPane.fxml"));
+            JFXTabPane estadisticasPane = FXMLLoader.load(getClass().getResource("/vista/estadisticasPane.fxml"));
 
             setNode(inicioPane);
 
@@ -63,6 +65,9 @@ public class MainController implements Initializable {
                                 break;
                             case "contactoVista":
                                 setNode(proximamentePane);
+                                break;
+                            case "estadisticas":
+                                setNode(estadisticasPane);
                                 break;
                         }
                     });

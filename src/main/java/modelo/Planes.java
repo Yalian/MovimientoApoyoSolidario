@@ -38,7 +38,7 @@ public class Planes implements Serializable{
     @Column(name = "Gratitud_Segunda")
     int bonoGratitudSegundo;
 
-    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "planes",cascade = {CascadeType.ALL})
+    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "planes")
     @Column(name = "Clientes")
     private List<Cliente> clientes = new ArrayList<>();
 

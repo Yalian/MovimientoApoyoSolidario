@@ -500,14 +500,7 @@ public class Data {
         Cliente cliente1 = em.find(Cliente.class,cliente.getID_Cliente());
         Planes planes1 = em.find(Planes.class, planes.getID());
 
-        cliente.getPlanes().size();
-        planes.getClientes().size();
-
         cliente1.getPlanes().remove(planes1);
-        planes.getClientes().remove(cliente1);
-
-        em.merge(cliente1);
-        em.merge(planes1);
 
         em.getTransaction().commit();
         em.close();
@@ -517,13 +510,12 @@ public class Data {
         EntityManager em  = emf.createEntityManager();
 
         em.getTransaction().begin();
+
         Cliente cliente1 = em.find(Cliente.class,cliente.getID_Cliente());
+        Planes p = em.find(Planes.class,planes.getID());
 
-        cliente.getPlanes().size();
-        planes.getClientes().size();
-
-        cliente1.getPlanes().add(planes);
-        em.merge(cliente1);
+        cliente1.getPlanes().add(p);
+        em.persist(cliente1);
 
         em.flush();
 

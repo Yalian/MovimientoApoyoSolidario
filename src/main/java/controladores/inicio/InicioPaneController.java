@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
+import modelo.Cliente;
 import modelo.Evento;
 
 import java.net.URL;
@@ -109,6 +110,8 @@ public class InicioPaneController implements Initializable {
         List<Evento> eventosFil = filtrar();
         rellenarEventos(eventosFil,eventosFil.size());
     }
+
+
 
 
 
