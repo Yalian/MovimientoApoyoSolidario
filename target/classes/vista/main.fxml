@@ -84,6 +84,18 @@
                         <Font name="Lucida Sans Regular" size="14.0" />
                      </font>
                   </JFXButton>
+                  <JFXButton accessibleText="estadisticas" layoutX="10.0" layoutY="139.0" prefHeight="43.0" prefWidth="122.0" text="Graficas" textAlignment="CENTER" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imgs/icons8_Outline_48px_1.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Lucida Sans Regular" size="14.0" />
+                     </font>
+                  </JFXButton>
                </children>
             </VBox>
             <JFXButton fx:id="BTN_Configuracion" layoutX="10.0" layoutY="139.0" prefHeight="43.0" prefWidth="122.0" text="Config" textAlignment="CENTER" textFill="WHITE">

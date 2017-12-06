@@ -7,15 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7977b691-f0a7-4f10-b2ee-03e61e1f1009" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/controladores/estadisticasPane.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/MasDB.mv.db" afterPath="$PROJECT_DIR$/db/MasDB.mv.db" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controladores/MainController.java" afterPath="$PROJECT_DIR$/src/main/java/controladores/MainController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controladores/inicio/InicioPaneController.java" afterPath="$PROJECT_DIR$/src/main/java/controladores/inicio/InicioPaneController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/helpers/Calculos.java" afterPath="$PROJECT_DIR$/src/main/java/helpers/Calculos.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/helpers/Data.java" afterPath="$PROJECT_DIR$/src/main/java/helpers/Data.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/modelo/Planes.java" afterPath="$PROJECT_DIR$/src/main/java/modelo/Planes.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/vista/main.fxml" afterPath="$PROJECT_DIR$/src/main/resources/vista/main.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/vista/main.fxml" afterPath="$PROJECT_DIR$/target/classes/vista/main.fxml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -564,7 +557,14 @@
       <option name="project" value="LOCAL" />
       <updated>1512503909714</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="- impleentacion de graficas y correcta interaccion de los modelos cliente y planes">
+      <created>1512521011528</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1512521011528</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -615,7 +615,8 @@
     <MESSAGE value="- pequeños arreglos" />
     <MESSAGE value="- Procesar datos desde fichero exportado del movil&#10;- implementacion de Gson para serializar y deserealizar" />
     <MESSAGE value="- tratando de implementar la conexion de planes con los clientes" />
-    <option name="LAST_COMMIT_MESSAGE" value="- tratando de implementar la conexion de planes con los clientes" />
+    <MESSAGE value="- impleentacion de graficas y correcta interaccion de los modelos cliente y planes" />
+    <option name="LAST_COMMIT_MESSAGE" value="- impleentacion de graficas y correcta interaccion de los modelos cliente y planes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
