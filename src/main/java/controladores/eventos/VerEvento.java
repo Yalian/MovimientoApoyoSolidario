@@ -10,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Accordion;
+import javafx.scene.control.Alert;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import modelo.Cosecha;
@@ -89,8 +90,18 @@ public class VerEvento implements Initializable{
         stage.close();
     }
 
+    private static void Error(String e) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText(null);
+        alert.setContentText(e);
+
+        alert.showAndWait();
+    }
+
     @FXML
     void enviarCorreos(ActionEvent event) {
+        Error("Funcion no disponible en Demo");
 
     }
 
@@ -103,6 +114,7 @@ public class VerEvento implements Initializable{
 
         if (file != null) {
             Data.procesarData(file,eventoID);
+            Data.setDatosIngresados(eventoID,true);
         }
 
     }

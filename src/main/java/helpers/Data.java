@@ -30,8 +30,6 @@ public class Data {
 
     private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("aplicacion");
 
-    private static final String fileName = "Datos.obj";
-
     public static List<Cliente> getList(){
         EntityManager em  = emf.createEntityManager();
         try{
@@ -47,26 +45,57 @@ public class Data {
 
     }
 
-
     public static ObservableList<ClienteFX> getClientes(){
         EntityManager em  = emf.createEntityManager();
         ObservableList<ClienteFX> datos = FXCollections.observableArrayList();
         try{
             List<Cliente> t = em.createQuery("FROM Cliente").getResultList();
                 for (Cliente t1: t) {
-                    datos.add(new ClienteFX(
-                            t1.getID_Cliente(),
-                            t1.getCedula(),
-                            t1.getNombres(),
-                            t1.getApellidos(),
-                            t1.getCiudad(),
-                            t1.getCelular(),
-                            t1.getCorreo(),
-                            t1.getDireccion(),
-                            t1.getPatrocinador(),
-                            t1.getCoPatrocinador(),
-                            t1.getFechaRegistro()
-                    ));
+                    if (t1.getID_Patrocinador() == null){
+                        datos.add(new ClienteFX(
+                                t1.getID_Cliente(),
+                                t1.getCedula(),
+                                t1.getNombres(),
+                                t1.getApellidos(),
+                                t1.getCiudad(),
+                                t1.getCelular(),
+                                t1.getCorreo(),
+                                t1.getDireccion(),
+                                "Ninguno",
+                                "Ninguno",
+                                t1.getFechaRegistro()));
+
+                    }else {
+
+                        if ( t1.getID_Patrocinador().getID_Patrocinador() == null){
+                            datos.add(new ClienteFX(
+                                    t1.getID_Cliente(),
+                                    t1.getCedula(),
+                                    t1.getNombres(),
+                                    t1.getApellidos(),
+                                    t1.getCiudad(),
+                                    t1.getCelular(),
+                                    t1.getCorreo(),
+                                    t1.getDireccion(),
+                                    t1.getID_Patrocinador().getNombres(),
+                                    "Ninguno",
+                                    t1.getFechaRegistro()));
+                        }else {
+                            datos.add(new ClienteFX(
+                                    t1.getID_Cliente(),
+                                    t1.getCedula(),
+                                    t1.getNombres(),
+                                    t1.getApellidos(),
+                                    t1.getCiudad(),
+                                    t1.getCelular(),
+                                    t1.getCorreo(),
+                                    t1.getDireccion(),
+                                    t1.getID_Patrocinador().getNombres(),
+                                    t1.getID_Patrocinador().getID_Patrocinador().getNombres(),
+                                    t1.getFechaRegistro()));
+                        }
+
+                    }
                 }
 
             return datos;
@@ -246,6 +275,8 @@ public class Data {
         EntityManager em  = emf.createEntityManager();
 
         Cliente c = em.find(Cliente.class, s);
+        c.getID_Siembras().size();
+        c.getID_Cosechas().size();
 
         System.out.println(c);
 
@@ -348,20 +379,37 @@ public class Data {
         List<Modelo> datos = leerDatos(obj);
 
         for (Modelo dato : datos){
-            Cliente cliente = findClienteByID(dato.getId());
-            Evento evento = findEventoByID(id);
+            Cliente cliente = em.find(Cliente.class,dato.getId());
+            Evento evento = em.find(Evento.class,id);
             switch (dato.getTipo()){
                 case "Entrega":
                     Cosecha cosecha = new Cosecha(dato.getMonto(),cliente,evento);
-                    em.persist(cosecha);
+                    cliente.getID_Cosechas().add(cosecha);
+                    if (cliente.getCurrentCosecha()== 0){
+                        cliente.setCurrentCosecha(cliente.getID_Cosechas().indexOf(cosecha));
+                    }
+                    cliente.setCurrentSiembra(0);
+                    em.persist(cliente);
                     break;
                 case "Recepcion":
                     if (dato.isBTC()){
                         Siembra siembra = new Siembra(cliente,evento,true,dato.getMonto());
-                        em.persist(siembra);
+                        cliente.getID_Siembras().add(siembra);
+                        if (cliente.getCurrentSiembra() == 0){
+                            cliente.setCurrentSiembra(cliente.getID_Siembras().indexOf(siembra));
+                        }
+                        cliente.setCurrentCosecha(0);
+                        cliente.setVisitante(false);
+                        em.persist(cliente);
                     }else {
                         Siembra siembra = new Siembra(cliente,evento,dato.getMonto());
-                        em.persist(siembra);
+                        cliente.getID_Siembras().add(siembra);
+                        if (cliente.getCurrentSiembra() == 0){
+                            cliente.setCurrentSiembra(cliente.getID_Siembras().indexOf(siembra));
+                        }
+                        cliente.setCurrentCosecha(0);
+                        cliente.setVisitante(false);
+                        em.persist(cliente);
                     }
                     break;
                 case "Visitante":
@@ -370,16 +418,32 @@ public class Data {
                     break;
             }
         }
+        em.getTransaction().commit();
+        em.close();
+    }
 
+    public static LocalDate getFechaSiembra(Cliente cliente){
+        EntityManager em  = emf.createEntityManager();
+        em.getTransaction().begin();
 
+        Cliente c = em.find(Cliente.class,cliente.getID_Cliente());
+
+        LocalDate fechainicial = c.getID_Siembras().get(c.getCurrentSiembra()).getFecha();
+
+        return fechainicial;
+    }
+
+    public static void agregarCosecha(Cliente cliente, Cosecha cosecha){
+        EntityManager em  = emf.createEntityManager();
+        em.getTransaction().begin();
+
+        Cliente cliente1 = findClienteByID(cliente.getID_Cliente());
+
+        cliente1.getID_Cosechas().size();
+        cliente1.getID_Cosechas().add(cosecha);
 
         em.getTransaction().commit();
         em.close();
-
-
-
-
-
     }
 
     public static List<Cosecha> getCosechas(int id){
@@ -418,7 +482,7 @@ public class Data {
         EntityManager em  = emf.createEntityManager();
         List<Siembra> siembras;
 
-        Evento evento = findEventoByID(id);
+        Evento evento = em.find(Evento.class,id);
         siembras = evento.getSiembras();
         siembras.size();
 
@@ -432,7 +496,7 @@ public class Data {
         EntityManager em  = emf.createEntityManager();
         List<Cosecha> cosechas;
 
-        Evento evento = findEventoByID(id);
+        Evento evento = em.find(Evento.class,id);
         cosechas = evento.getCosechas();
         cosechas.size();
 
@@ -481,11 +545,26 @@ public class Data {
         em.close();
     }
 
+    public static void setDatosIngresados(int id,boolean dato){
+        EntityManager em  = emf.createEntityManager();
+
+        Evento evento = em.find(Evento.class,id);
+
+        em.getTransaction().begin();
+
+        evento.setDatosIngresados(dato);
+
+        em.getTransaction().commit();
+        em.close();
+    }
+
     public static Asistencias getAsistenciaPorEvento(int eventoID) {
         EntityManager em  = emf.createEntityManager();
         Asistencias asistencias;
-        Evento evento = findEventoByID(eventoID);
+
+        Evento evento = em.find(Evento.class,eventoID);
         asistencias = evento.getAsistencias();
+        asistencias.getClientes().size();
 
         em.close();
 
@@ -523,6 +602,15 @@ public class Data {
         em.close();
 
 
+    }
+
+    public static Cliente buscarCPatrocinador(int id){
+        EntityManager em  = emf.createEntityManager();
+
+        Cliente cliente = findClienteByID(id);
+        Cliente patro = findClienteByID(cliente.getID_Patrocinador().getID_Cliente());
+
+        return patro;
     }
 
 

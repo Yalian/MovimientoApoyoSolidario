@@ -3,8 +3,6 @@ package controladores;
 import com.jfoenix.controls.JFXComboBox;
 import helpers.Calculos;
 import helpers.Data;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -45,7 +43,7 @@ public class estadisticasPane implements Initializable{
         List<Evento> evenFil = new ArrayList<>();
 
         for (Evento e:evento){
-            if (e.getFecha().getMonthValue() == mes){
+            if (e.getFecha().getMonthValue() == mes && e.isDatosIngresados()){
                 evenFil.add(e);
             }
         }

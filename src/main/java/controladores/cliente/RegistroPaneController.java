@@ -3,19 +3,24 @@ package controladores.cliente;
 import com.jfoenix.controls.*;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import helpers.Data;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TreeItem;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import helpers.ClienteFX;
+import javafx.util.Duration;
 
 
 import java.io.IOException;
@@ -187,10 +192,32 @@ public class RegistroPaneController implements Initializable {
 
     }
 
+    private static void Error(String e) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText(null);
+        alert.setContentText(e);
+
+        alert.showAndWait();
+    }
+
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        Timeline fiveSecondsWonder = new Timeline(new KeyFrame(Duration.seconds(5), event ->
+        {
+            if (Data.getList().size() > 10){
+                btn_agregar.setOnAction(event1 -> Error("Solo se permiten hasta 10 clientes en la version Demo"));
+            }
+        }
+
+        ));
+        fiveSecondsWonder.setCycleCount(Timeline.INDEFINITE);
+        fiveSecondsWonder.play();
+
+
         CB_TipoBusqueda.getItems().addAll("Nombres","Apellidos","Patrocinador");
         CB_TipoBusqueda.getSelectionModel().selectFirst();
         System.out.println(Data.getList());

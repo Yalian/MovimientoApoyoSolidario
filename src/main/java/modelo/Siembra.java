@@ -4,6 +4,7 @@ import org.h2.table.Plan;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "SIEMBRAS")
@@ -22,6 +23,8 @@ public class Siembra implements Serializable {
     @JoinColumn(name = "ID_Evento")
     Evento ID_Evento;
 
+    @Column(name = "Fecha")
+    LocalDate fecha;
 
     @Column(name = "Plan")
     Planes plan;
@@ -41,6 +44,7 @@ public class Siembra implements Serializable {
         this.ID_Cliente = clienteID;
         this.ID_Evento = eventoID;
         this.monto = monto;
+        this.fecha = eventoID.getFecha();
     }
 
     public Siembra(Cliente ID_Cliente, Evento ID_Evento, boolean btc, double monto) {
@@ -48,6 +52,15 @@ public class Siembra implements Serializable {
         this.ID_Evento = ID_Evento;
         this.btc = btc;
         this.monto = monto;
+        this.fecha = ID_Evento.getFecha();
+    }
+
+    public LocalDate getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(LocalDate fecha) {
+        this.fecha = fecha;
     }
 
     public int getID_Siembra() {

@@ -2,6 +2,7 @@ package modelo;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 
 
 @Entity
@@ -15,6 +16,9 @@ public class Cosecha implements Serializable{
 
     @Column(name = "MONTO")
     double monto;
+
+    @Column(name = "Fecha")
+    LocalDate fecha;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ID_Cliente")
@@ -31,6 +35,15 @@ public class Cosecha implements Serializable{
         this.monto = monto;
         this.ID_Cliente = ID_Cliente;
         this.ID_Evento = ID_Evento;
+        this.fecha = ID_Evento.getFecha();
+    }
+
+    public LocalDate getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(LocalDate fecha) {
+        this.fecha = fecha;
     }
 
     public int getId() {

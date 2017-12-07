@@ -1,14 +1,21 @@
 package controladores.inicio;
 
+import com.jfoenix.controls.JFXTreeTableColumn;
+import com.jfoenix.controls.JFXTreeTableView;
+import com.jfoenix.controls.RecursiveTreeItem;
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+import helpers.Calendario;
 import helpers.Data;
+import helpers.Proximos;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.concurrent.Task;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.TreeItem;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 import modelo.Cliente;
@@ -37,6 +44,9 @@ public class InicioPaneController implements Initializable {
 
     @FXML
     private Label eve1dic;
+
+    @FXML
+    private JFXTreeTableView<Proximos> TV_Proximos;
 
     @FXML
     private VBox eve2;
@@ -111,16 +121,59 @@ public class InicioPaneController implements Initializable {
         rellenarEventos(eventosFil,eventosFil.size());
     }
 
+    private ObservableList<Proximos> obtenerPersonas(){
+        List<Cliente> base = Data.getList();
+        ObservableList<Proximos> proximos = FXCollections.observableArrayList();
 
+        for (Cliente c: base){
+            if (!c.isVisitante()){
+                int invitados = 0;
+                invitados += c.getInvitados().size();
+                proximos.add(new Proximos(c.getNombres(),obtenerFecha(c),invitados));
 
+            }
+        }
+        return proximos;
+    }
 
+    private void crearColumnas(){
+            JFXTreeTableColumn<Proximos, String> nombresCol = new JFXTreeTableColumn<>("Nombre");
+            nombresCol.setCellValueFactory(param -> param.getValue().getValue().clienteProperty());
 
+            JFXTreeTableColumn<Proximos, String> fechaCol = new JFXTreeTableColumn<>("Fecha Estimada");
+            fechaCol.setCellValueFactory(param -> param.getValue().getValue().fechaProperty());
+
+            JFXTreeTableColumn<Proximos, Number> invCol = new JFXTreeTableColumn<>("Invitados");
+            invCol.setCellValueFactory(param -> param.getValue().getValue().invitadosProperty());
+
+            TV_Proximos.getColumns().setAll(nombresCol,invCol,fechaCol);
+    }
+
+    private void refrescarTabla(){
+        ObservableList<Proximos> proximos = obtenerPersonas();
+        TreeItem<Proximos> root = new RecursiveTreeItem<>(proximos, RecursiveTreeObject::getChildren);
+        TV_Proximos.setRoot(root);
+        TV_Proximos.setShowRoot(false);
+    }
+
+    private LocalDate obtenerFecha(Cliente c){
+        LocalDate fechaInicial = Data.getFechaSiembra(c);
+        return Calendario.getFecha(30,fechaInicial);
+    }
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         iniciarEventos();
-        Timeline fiveSecondsWonder = new Timeline(new KeyFrame(Duration.seconds(10), event -> iniciarEventos()));
+        crearColumnas();
+
+        Timeline fiveSecondsWonder = new Timeline(new KeyFrame(Duration.seconds(10), event ->
+        {
+            iniciarEventos();
+            refrescarTabla();
+        }
+        ));
+
         fiveSecondsWonder.setCycleCount(Timeline.INDEFINITE);
         fiveSecondsWonder.play();
     }

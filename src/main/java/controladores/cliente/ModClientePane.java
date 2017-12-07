@@ -145,16 +145,37 @@ public class ModClientePane implements Initializable{
 
         System.out.println(s.toString());
 
+        String coPatro = "";
+        String patro = "";
+
+        if (s.getID_Patrocinador().getNombres() == null){
+            patro = "Ninguno";
+        }else {
+            patro = s.getID_Patrocinador().getNombres();
+
+            if (s.getID_Patrocinador().getID_Patrocinador() == null){
+                coPatro = "Ninguno";
+            }else {
+                coPatro = s.getID_Patrocinador().getID_Patrocinador().getNombres();
+            }
+        }
+
+
+
+
+
+
+
         TXT_ID.setText(s.getID_Cliente()+"");
         TF_Apellidos.setText(s.getApellidos()+"");
         TF_Nombres.setText(s.getNombres()+"");
         TF_Cedula.setText(s.getCelular()+"");
         TF_Celular.setText(s.getCelular()+"");
         CB_Ciudad.getSelectionModel().select(s.getCiudad());
-        TF_Copatrocinador.setText(s.getCoPatrocinador()+"");
+        TF_Copatrocinador.setText(coPatro);
         TF_FechaRegistro.setValue(s.getFechaRegistro());
         TF_Direccion.setText(s.getDireccion()+"");
-        TF_Patrocinador.setText(s.getPatrocinador());
+        TF_Patrocinador.setText(patro);
         TF_Correo.setText(s.getCorreo()+"");
 
         TF_Patrocinador.setEditable(false);

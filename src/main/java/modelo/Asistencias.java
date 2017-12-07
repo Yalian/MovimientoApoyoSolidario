@@ -13,7 +13,7 @@ public class Asistencias implements Serializable{
     @GeneratedValue
     int id;
 
-    @OneToMany
+    @OneToMany()
     @Column(name = "Clientes")
     List<Cliente> clientes;
 
