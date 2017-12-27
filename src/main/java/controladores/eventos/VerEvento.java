@@ -4,11 +4,17 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXTimePicker;
+import constant.Constantes;
+import controladores.cliente.ModClientePane;
 import helpers.Calculos;
 import helpers.Data;
+import helpers.Preferencias;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.Alert;
 import javafx.stage.FileChooser;
@@ -18,6 +24,7 @@ import modelo.Evento;
 import modelo.Siembra;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -101,7 +108,21 @@ public class VerEvento implements Initializable{
 
     @FXML
     void enviarCorreos(ActionEvent event) {
-        Error("Funcion no disponible en Demo");
+        if (!Preferencias.leer().getCorreo_user().equalsIgnoreCase("")){
+            try {
+                FXMLLoader loader=new FXMLLoader(getClass().getResource("/vista/enviarCorreo.fxml"));
+                Parent root = loader.load();
+
+                Stage stage=new Stage();
+                stage.setScene(new Scene(root));
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }else {
+            Error("Configurar primero un correo, Por Favor.");
+        }
+
 
     }
 

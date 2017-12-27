@@ -102,7 +102,7 @@ public class AgregarClientePane implements Initializable{
                     TF_FechaRegistro.getValue());
 
             if (CB_Planes.getSelectionModel().getSelectedItem() != null){
-                e.getPlanes().add(CB_Planes.getSelectionModel().getSelectedItem());
+                e.setPlanes(CB_Planes.getSelectionModel().getSelectedItem());
             }
 
             Data.persist(e);
@@ -130,6 +130,10 @@ public class AgregarClientePane implements Initializable{
         CB_Patrocinador.setItems(Data.getClientes());
         CB_Planes.getItems().setAll(Data.getPlanes());
         CB_Ciudad.getItems().addAll(Preferencias.leer().getCiudades());
+
+        CB_Planes.getSelectionModel().selectFirst();
+        CB_Patrocinador.getSelectionModel().selectFirst();
+        CB_Ciudad.getSelectionModel().selectFirst();
 
 
         new AutoComplete<ClienteFX>(CB_Patrocinador);

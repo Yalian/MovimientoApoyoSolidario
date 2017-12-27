@@ -88,7 +88,7 @@
                      <graphic>
                         <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../imgs/icons8_Outline_48px_1.png" />
+                              <Image url="@../imgs/icons8_Combo_Chart_48px.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -102,7 +102,7 @@
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imgs/icons8_Outline_48px_1.png" />
+                        <Image url="@../imgs/icons8_Settings_48px.png" />
                      </image>
                   </ImageView>
                </graphic>

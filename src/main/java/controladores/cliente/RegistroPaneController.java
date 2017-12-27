@@ -2,6 +2,7 @@ package controladores.cliente;
 
 import com.jfoenix.controls.*;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+import constant.Version;
 import helpers.Data;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -172,15 +173,23 @@ public class RegistroPaneController implements Initializable {
 
     @FXML
     void cargarAgregar(ActionEvent event) {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/cliente/agregarClientePane.fxml"));
-            Parent root1 = fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root1));
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.show();
-        } catch(Exception e) {
-            e.printStackTrace();
+        if (!(Version.isDemo() && Data.getList().size() >= 10)){
+            if (!Data.getPlanes().isEmpty()){
+                try {
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/cliente/agregarClientePane.fxml"));
+                    Parent root1 = fxmlLoader.load();
+                    Stage stage = new Stage();
+                    stage.setScene(new Scene(root1));
+                    stage.initModality(Modality.APPLICATION_MODAL);
+                    stage.show();
+                } catch(Exception e) {
+                    e.printStackTrace();
+                }
+            }else {
+                Error("Debe tener al menos un Plan registrado.");
+            }
+        }else {
+            Error("La Version demo solo admite 10 usuarios registrados");
         }
     }
 

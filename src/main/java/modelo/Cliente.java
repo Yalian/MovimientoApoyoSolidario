@@ -69,7 +69,7 @@ public class Cliente implements Serializable{
     @Column(name = "SOLO_VISITANTE")
     boolean visitante = true;
 
-    @OneToMany(mappedBy = "ID_Cliente", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "ID_Cliente" ,cascade = CascadeType.ALL)
     @Column(name = "ID_Cosechas")
     List<Cosecha> ID_Cosechas = new ArrayList<>() ;
 
@@ -77,13 +77,13 @@ public class Cliente implements Serializable{
     @Column(name = "ID_Siembras")
     List<Siembra> ID_Siembras = new ArrayList<>() ;
 
-    @OneToMany(mappedBy = "clientes", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "clientes" , cascade = CascadeType.ALL)
     @Column(name = "ASISTENCIAS")
     List<Asistencias> asistencias = new ArrayList<>() ;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    @ManyToOne
     @JoinColumn(name = "Planes")
-    List<Planes> planes = new ArrayList<>();
+    Planes planes;
 
 
 
@@ -166,11 +166,11 @@ public class Cliente implements Serializable{
         this.currentSiembra = currentSiembra;
     }
 
-    public List<Planes> getPlanes() {
+    public Planes getPlanes() {
         return planes;
     }
 
-    public void setPlanes(List<Planes> planes) {
+    public void setPlanes(Planes planes) {
         this.planes = planes;
     }
 

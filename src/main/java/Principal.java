@@ -25,17 +25,6 @@ public class Principal extends Application {
         primaryStage.setTitle("M.A.S");
         primaryStage.setScene(new Scene(root));
 
-        if (Data.getClientes().size() == 0){
-            Cliente c = new Cliente("Ninguno");
-            Data.persist(c);
-        }
-
-        Path path = Paths.get("Preferencias.obj");
-
-        if (Preferencias.leer() == null){
-            Preferencias.guardar(new Constantes());
-        }
-
         for (Cliente c:Data.getList()){
             System.out.println("Estos son los invitados de : " + c.getNombres());
             System.out.println(c.getInvitados());

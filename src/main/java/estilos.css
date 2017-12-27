@@ -1,6 +1,11 @@
-.jfx-text-field, .jfx-password-field {
-    -fx-prompt-text-fill: #808080;
+.jfx-text-field, .jfx-password-field, .jfx-combo-box{
     -jfx-focus-color: #277c5b;
     -jfx-unfocus-color: #39a67f;
     -jfx-label-float: true;
-}
+    }
+
+    .jfx-button {
+        -jfx-button-type: RAISED;
+        -jfx-rippler-fill: #39a67f;
+    }
+

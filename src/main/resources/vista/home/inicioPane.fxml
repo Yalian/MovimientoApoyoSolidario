@@ -102,7 +102,7 @@
                   <Font name="Lucida Sans Regular" size="24.0" />
                </font>
             </Label>
-            <JFXTreeTableView fx:id="TV_Proximos" showRoot="false">
+            <JFXTreeTableView fx:id="TV_Proximos" onMouseClicked="#abrirProximo" showRoot="false">
                <columnResizePolicy>
                   <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>

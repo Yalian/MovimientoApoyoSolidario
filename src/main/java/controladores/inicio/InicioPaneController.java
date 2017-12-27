@@ -4,23 +4,32 @@ import com.jfoenix.controls.JFXTreeTableColumn;
 import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+import controladores.cliente.ModClientePane;
 import helpers.Calendario;
 import helpers.Data;
 import helpers.Proximos;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TreeItem;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import modelo.Cliente;
 import modelo.Evento;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -123,16 +132,31 @@ public class InicioPaneController implements Initializable {
 
     private ObservableList<Proximos> obtenerPersonas(){
         List<Cliente> base = Data.getList();
+        if (base.get(0).getNombres().equalsIgnoreCase("ninguno")){
+            base.remove(0);
+        }
         ObservableList<Proximos> proximos = FXCollections.observableArrayList();
 
-        for (Cliente c: base){
-            if (!c.isVisitante()){
-                int invitados = 0;
-                invitados += c.getInvitados().size();
-                proximos.add(new Proximos(c.getNombres(),obtenerFecha(c),invitados));
+        if (base != null){
+            for (Cliente c: base){
+                if (!c.isVisitante() || c.getPlanes() ==null){
+                    int invitados = 0;
+                    int invitadosC = 0;
 
+                    invitados += c.getInvitados().size();
+
+                    if (c.getInvitados() != null){
+                        for (Cliente l:c.getInvitados()){
+                            invitadosC += l.getInvitados().size();
+                        }
+                    }
+
+                    proximos.add(new Proximos(c.getID_Cliente(),c.getNombres(),obtenerFecha(c),invitados,invitadosC));
+
+                }
             }
         }
+
         return proximos;
     }
 
@@ -144,7 +168,9 @@ public class InicioPaneController implements Initializable {
             fechaCol.setCellValueFactory(param -> param.getValue().getValue().fechaProperty());
 
             JFXTreeTableColumn<Proximos, Number> invCol = new JFXTreeTableColumn<>("Invitados");
-            invCol.setCellValueFactory(param -> param.getValue().getValue().invitadosProperty());
+            invCol.setCellValueFactory(param ->
+                    new SimpleIntegerProperty(param.getValue().getValue().invitadosProperty().get() +
+                    param.getValue().getValue().invitadosSProperty().get()));
 
             TV_Proximos.getColumns().setAll(nombresCol,invCol,fechaCol);
     }
@@ -157,8 +183,40 @@ public class InicioPaneController implements Initializable {
     }
 
     private LocalDate obtenerFecha(Cliente c){
-        LocalDate fechaInicial = Data.getFechaSiembra(c);
+        LocalDate fechaInicial = c.getFechaRegistro();
         return Calendario.getFecha(30,fechaInicial);
+    }
+
+
+    @FXML
+    void abrirProximo(MouseEvent event) {
+        if (event.getClickCount() >= 2){
+            try {
+                FXMLLoader loader=new FXMLLoader(getClass().getResource("/vista/home/abrirProximo.fxml"));
+                loader.setControllerFactory(controllerClass -> {
+                    if (controllerClass == abrirProximo.class) {
+                        abrirProximo controller = new abrirProximo();
+                        controller.setId(TV_Proximos.getSelectionModel().getSelectedItem().getValue().getId());
+                        return controller ;
+                    } else {
+                        try {
+                            return controllerClass.newInstance();
+                        } catch (Exception exc) {
+                            throw new RuntimeException(exc); // just bail
+                        }
+                    }
+                });
+
+                Parent root = loader.load();
+
+                Stage stage=new Stage();
+                stage.setScene(new Scene(root));
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 
 
@@ -166,6 +224,7 @@ public class InicioPaneController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         iniciarEventos();
         crearColumnas();
+        refrescarTabla();
 
         Timeline fiveSecondsWonder = new Timeline(new KeyFrame(Duration.seconds(10), event ->
         {

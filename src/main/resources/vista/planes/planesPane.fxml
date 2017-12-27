@@ -10,13 +10,13 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.planes.PlanesPane">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0" prefWidth="660.0" stylesheets="@../../../java/estilos.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.planes.PlanesPane">
    <children>
       <VBox prefHeight="410.0" prefWidth="182.0" HBox.hgrow="ALWAYS">
          <children>
             <VBox alignment="TOP_CENTER" prefHeight="357.0" prefWidth="274.0" spacing="15.0" VBox.vgrow="ALWAYS">
                <children>
-                  <JFXTextField fx:id="nombre" labelFloat="true" promptText="Nombre" />
+                  <JFXTextField fx:id="nombre" focusColor="#277c5b" labelFloat="true" promptText="Nombre" />
                   <JFXTextField fx:id="dias" labelFloat="true" promptText="Dias Laborables" />
                   <JFXTextField fx:id="grat_1" labelFloat="true" promptText="Bono Gratitud 1° Fase" />
                   <JFXTextField fx:id="grat_2" labelFloat="true" promptText="Bono Gratitud 2° Fase" />
@@ -32,9 +32,9 @@
             <Separator prefWidth="200.0" />
             <HBox alignment="CENTER">
                <children>
-                  <JFXButton fx:id="BTN_Aceptar" onAction="#agregarPlan" prefHeight="50.0" prefWidth="125.0" text="Agregar" />
+                  <JFXButton fx:id="BTN_Aceptar" buttonType="RAISED" onAction="#agregarPlan" prefHeight="50.0" prefWidth="125.0" stylesheets="@../../../java/estilos.css" text="Agregar" />
                   <Separator orientation="VERTICAL" prefHeight="50.0" />
-                  <JFXButton layoutX="10.0" layoutY="10.0" onAction="#limpiarCampos" prefHeight="50.0" prefWidth="125.0" text="Limpiar Campos" />
+                  <JFXButton buttonType="RAISED" layoutX="10.0" layoutY="10.0" onAction="#limpiarCampos" prefHeight="50.0" prefWidth="125.0" text="Limpiar Campos" />
                </children>
             </HBox>
          </children>

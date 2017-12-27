@@ -2,12 +2,14 @@ package controladores;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTabPane;
+import helpers.Data;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import modelo.Cliente;
 
 import java.io.IOException;
 import java.net.URL;
@@ -30,13 +32,18 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        if (Data.getClientes().size() == 0){
+            Cliente c = new Cliente("Ninguno");
+            Data.persist(c);
+        }
+
         try {
+            HBox configuracionPane = FXMLLoader.load(getClass().getResource("/vista/configuracionPane.fxml"));
             HBox inicioPane = FXMLLoader.load(getClass().getResource("/vista/home/inicioPane.fxml"));
             HBox registroPane = FXMLLoader.load(getClass().getResource("/vista/cliente/registroPane.fxml"));
             HBox proximamentePane = FXMLLoader.load(getClass().getResource("/vista/proximamente.fxml"));
             HBox eventoPane = FXMLLoader.load(getClass().getResource("/vista/eventos/eventoPane.fxml"));
             HBox planesPane = FXMLLoader.load(getClass().getResource("/vista/planes/planesPane.fxml"));
-            HBox configuracionPane = FXMLLoader.load(getClass().getResource("/vista/configuracionPane.fxml"));
             JFXTabPane estadisticasPane = FXMLLoader.load(getClass().getResource("/vista/estadisticasPane.fxml"));
 
             setNode(inicioPane);

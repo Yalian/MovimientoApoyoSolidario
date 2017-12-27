@@ -20,7 +20,9 @@ public class Constantes implements Serializable{
     private String correo_user = "";
     private String correo_pass = "";
 
-
+    public Constantes() {
+        this.ciudades.add("Quito");
+    }
 
     public ArrayList<String> getCiudades() {
         return ciudades;

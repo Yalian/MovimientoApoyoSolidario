@@ -59,7 +59,7 @@
                      <graphic>
                         <ImageView fitHeight="33.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../imgs/icons8_Delete_48px_1.png" />
+                              <Image url="@../../imgs/icons8_Trash_48px.png" />
                            </image>
                         </ImageView>
                      </graphic>

@@ -1,18 +1,27 @@
-package controladores;
+package controladores.configuracion;
 
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import constant.Constantes;
 import helpers.Preferencias;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
+import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ResourceBundle;
+
+import static java.nio.file.Files.*;
 
 public class ConfiguracionPane implements Initializable{
 
@@ -35,7 +44,7 @@ public class ConfiguracionPane implements Initializable{
     private JFXComboBox<String> CB_Presentadores;
 
     @FXML
-    private JFXComboBox<String> CB_Correos;
+    private JFXTextField TF_Correo;
 
     Constantes constantes;
 
@@ -50,8 +59,22 @@ public class ConfiguracionPane implements Initializable{
 
     @FXML
     void agregarCorreo(ActionEvent event) {
+        try {
+            FXMLLoader loader=new FXMLLoader(getClass().getResource("/vista/nuevoCorreo.fxml"));
+            Parent root = loader.load();
 
-
+            Stage stage=new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+            stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                @Override
+                public void handle(WindowEvent event) {
+                    TF_Correo.setText(constantes.getCorreo_user());
+                }
+            });
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -91,6 +114,7 @@ public class ConfiguracionPane implements Initializable{
         constantes.setCorreo_user("");
         constantes.setCorreo_pass("");
         Preferencias.guardar(constantes);
+        TF_Correo.setText(constantes.getCorreo_user());
 
     }
 
@@ -120,14 +144,14 @@ public class ConfiguracionPane implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Path path = Paths.get("Preferencias.obj");
-        if (!Files.exists(path)){
+        if (!exists(path)){
             Preferencias.guardar(new Constantes());
         }else {
             try{
                 constantes = Preferencias.leer();
                 if (constantes != null){
                     CB_Ciudades.getItems().setAll(constantes.getCiudades());
-                    CB_Correos.getItems().setAll(constantes.getCorreo_user());
+                    TF_Correo.setText(constantes.getCorreo_user());
                     CB_Presentadores.getItems().setAll(constantes.getPresentadores());
                     Cb_Responsables.getItems().setAll(constantes.getResponsables());
                 }else {

@@ -179,6 +179,11 @@ public class Data {
         EntityManager em  = emf.createEntityManager();
         try {
             em.getTransaction().begin();
+
+            if (e.getPlanes() != null){
+                Planes planes = em.find(Planes.class, e.getPlanes().getID());
+                planes.getClientes().add(e);
+            }
             em.persist(e);
             System.out.println(e.toString());
             em.getTransaction().commit();
@@ -389,27 +394,25 @@ public class Data {
                         cliente.setCurrentCosecha(cliente.getID_Cosechas().indexOf(cosecha));
                     }
                     cliente.setCurrentSiembra(0);
-                    em.persist(cliente);
+                    em.merge(cliente);
                     break;
                 case "Recepcion":
                     if (dato.isBTC()){
                         Siembra siembra = new Siembra(cliente,evento,true,dato.getMonto());
                         cliente.getID_Siembras().add(siembra);
                         if (cliente.getCurrentSiembra() == 0){
-                            cliente.setCurrentSiembra(cliente.getID_Siembras().indexOf(siembra));
-                        }
+                            cliente.setCurrentSiembra(cliente.getID_Siembras().indexOf(siembra)); }
                         cliente.setCurrentCosecha(0);
                         cliente.setVisitante(false);
-                        em.persist(cliente);
+                        em.merge(cliente);
                     }else {
                         Siembra siembra = new Siembra(cliente,evento,dato.getMonto());
                         cliente.getID_Siembras().add(siembra);
                         if (cliente.getCurrentSiembra() == 0){
-                            cliente.setCurrentSiembra(cliente.getID_Siembras().indexOf(siembra));
-                        }
+                            cliente.setCurrentSiembra(cliente.getID_Siembras().indexOf(siembra)); }
                         cliente.setCurrentCosecha(0);
                         cliente.setVisitante(false);
-                        em.persist(cliente);
+                        em.merge(cliente);
                     }
                     break;
                 case "Visitante":
@@ -571,7 +574,7 @@ public class Data {
         return asistencias;
 
     }
-
+    /***
     public static void removePlan(Cliente cliente, Planes planes){
         EntityManager em  = emf.createEntityManager();
 
@@ -603,7 +606,7 @@ public class Data {
 
 
     }
-
+    ***/
     public static Cliente buscarCPatrocinador(int id){
         EntityManager em  = emf.createEntityManager();
 

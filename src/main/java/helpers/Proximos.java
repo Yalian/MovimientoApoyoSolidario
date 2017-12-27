@@ -10,21 +10,51 @@ import java.time.LocalDate;
 public class Proximos extends RecursiveTreeObject<Proximos> {
 
 
+    SimpleIntegerProperty id;
+
     SimpleStringProperty cliente;
 
     SimpleStringProperty fecha;
 
-    SimpleIntegerProperty invitados;
+    SimpleIntegerProperty invitadosP;
+
+    SimpleIntegerProperty invitadosS;
 
 
-    public Proximos(String cliente, LocalDate fecha, int invitados) {
+    public Proximos(int id,String cliente, LocalDate fecha, int invitados,int invitadosC) {
+        this.id = new SimpleIntegerProperty(id);
         this.cliente = new SimpleStringProperty(cliente);
         this.fecha = new SimpleStringProperty(fecha.toString());
-        this.invitados = new SimpleIntegerProperty(invitados);
+        this.invitadosP = new SimpleIntegerProperty(invitados);
+        this.invitadosS = new SimpleIntegerProperty(invitadosC);
     }
 
     public String getCliente() {
         return cliente.get();
+    }
+
+    public int getId() {
+        return id.get();
+    }
+
+    public int getInvitadosS() {
+        return invitadosS.get();
+    }
+
+    public SimpleIntegerProperty invitadosSProperty() {
+        return invitadosS;
+    }
+
+    public void setInvitadosS(int invitadosS) {
+        this.invitadosS.set(invitadosS);
+    }
+
+    public SimpleIntegerProperty idProperty() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id.set(id);
     }
 
     public SimpleStringProperty clienteProperty() {
@@ -48,14 +78,14 @@ public class Proximos extends RecursiveTreeObject<Proximos> {
     }
 
     public int getInvitados() {
-        return invitados.get();
+        return invitadosP.get();
     }
 
     public SimpleIntegerProperty invitadosProperty() {
-        return invitados;
+        return invitadosP;
     }
 
     public void setInvitados(int invitados) {
-        this.invitados.set(invitados);
+        this.invitadosP.set(invitados);
     }
 }

@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0" prefWidth="660.0" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.eventos.EventoPane">
+<HBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0" prefWidth="660.0" spacing="20.0" stylesheets="@../../../java/estilos.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.eventos.EventoPane">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="410.0" prefWidth="280.0" spacing="15.0" HBox.hgrow="SOMETIMES">
          <children>
@@ -37,7 +37,7 @@
             <Separator prefWidth="200.0" />
             <HBox alignment="TOP_CENTER" prefHeight="50.0" prefWidth="330.0" spacing="10.0" VBox.vgrow="SOMETIMES">
                <children>
-                  <JFXButton fx:id="BT_Add" onAction="#agregarPlan" prefHeight="50.0" prefWidth="80.0" text="Agregar" HBox.hgrow="ALWAYS" />
+                  <JFXButton fx:id="BT_Add" onAction="#agregarEvento" prefHeight="50.0" prefWidth="80.0" text="Agregar" HBox.hgrow="ALWAYS" />
                   <Separator orientation="VERTICAL" prefHeight="200.0" />
                   <JFXButton layoutX="111.0" layoutY="31.0" onAction="#limpiarCampos" prefHeight="50.0" prefWidth="80.0" text="Limpiar" HBox.hgrow="ALWAYS" />
                </children>

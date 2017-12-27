@@ -76,6 +76,7 @@ public class ModClientePane implements Initializable{
 
     int id;
 
+    /***
     @FXML
     void addPlan(ActionEvent event) {
         Cliente s = Data.findClienteByID(id);
@@ -93,6 +94,9 @@ public class ModClientePane implements Initializable{
 
         Data.removePlan(s,CB_PlanesInscritos.getSelectionModel().getSelectedItem());
     }
+
+     ***/
+
 
     @FXML
     void cargarImagen(ActionEvent event) {

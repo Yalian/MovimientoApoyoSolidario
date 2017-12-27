@@ -14,6 +14,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TreeItem;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -63,19 +64,37 @@ public class EventoPane implements Initializable {
     @FXML
     private JFXComboBox<String> CB_TipoBusqueda;
 
-    @FXML
-    void agregarPlan(ActionEvent event) {
-        Evento evento = new Evento(
-                DP_FechaEvento.getValue(),
-                TP_HoraEvento.getValue(),
-                CB_Ciudad.getSelectionModel().getSelectedItem(),
-                TF_Direccion.getText(),
-                CB_Responsable.getSelectionModel().getSelectedItem(),
-                CB_Presentador.getSelectionModel().getSelectedItem()
-        );
+    private static void Error(String e) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText(null);
+        alert.setContentText(e);
 
-        Data.persist(evento);
-        refrescar();
+        alert.showAndWait();
+    }
+
+    @FXML
+    void agregarEvento(ActionEvent event) {
+        if (!CB_Responsable.getItems().isEmpty()){
+            if (!CB_Presentador.getItems().isEmpty()){
+                Evento evento = new Evento(
+                        DP_FechaEvento.getValue(),
+                        TP_HoraEvento.getValue(),
+                        CB_Ciudad.getSelectionModel().getSelectedItem(),
+                        TF_Direccion.getText(),
+                        CB_Responsable.getSelectionModel().getSelectedItem(),
+                        CB_Presentador.getSelectionModel().getSelectedItem()
+                );
+                Data.persist(evento);
+                refrescar();
+            }else {
+                Error("Configurar primero un Presentador, Por Favor");
+            }
+        }else {
+            Error("Configurar primero un Responsable, Por Favor");
+        }
+
+
     }
 
 
@@ -184,6 +203,21 @@ public class EventoPane implements Initializable {
         CB_Ciudad.getItems().setAll(Preferencias.leer().getCiudades());
         CB_Presentador.getItems().setAll(Preferencias.leer().getPresentadores());
         CB_Responsable.getItems().setAll(Preferencias.leer().getResponsables());
+
+        if(!CB_Presentador.getSelectionModel().isEmpty()){
+            CB_Presentador.getSelectionModel().selectFirst();
+
+        }
+        if(!CB_Responsable.getSelectionModel().isEmpty()){
+            CB_Responsable.getSelectionModel().selectFirst();
+
+        }
+        if(!CB_Ciudad.getSelectionModel().isEmpty()){
+            CB_Ciudad.getSelectionModel().selectFirst();
+        }
+
+
+
     }
 
     @Override

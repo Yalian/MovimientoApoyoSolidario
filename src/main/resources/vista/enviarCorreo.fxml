@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="660.0" stylesheets="@../../java/estilos.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.eventos.EnviarCorreoControlador">
+   <children>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="250.0" spacing="20.0" HBox.hgrow="ALWAYS">
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+         <children>
+            <JFXTextField fx:id="asunto" labelFloat="true" promptText="Asunto" />
+            <JFXTextArea fx:id="mensaje" focusColor="#277c5b" labelFloat="true" promptText="Mensaje" unFocusColor="#39a67f" VBox.vgrow="ALWAYS" />
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0" spacing="20.0">
+               <children>
+                  <JFXButton buttonType="RAISED" onAction="#enviarCorreo" prefHeight="50.0" prefWidth="100.0" text="Enviar" />
+                  <JFXButton buttonType="RAISED" layoutX="10.0" layoutY="10.0" onAction="#cancelar" prefHeight="50.0" prefWidth="100.0" text="Cancelar" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <VBox layoutX="10.0" layoutY="10.0" prefHeight="400.0" prefWidth="200.0" spacing="20.0" HBox.hgrow="ALWAYS">
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+         <children>
+            <Label fx:id="estado" contentDisplay="CENTER" text="Estado :  Inactivo" wrapText="true" />
+            <JFXTreeTableView fx:id="lstCorreos" prefHeight="280.0" prefWidth="265.0" showRoot="false">
+               <columnResizePolicy>
+                  <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy></JFXTreeTableView>
+            <JFXTextField fx:id="correo" labelFloat="true" promptText="Correo" />
+            <HBox alignment="CENTER" prefHeight="40.0" spacing="20.0">
+               <children>
+                  <JFXButton buttonType="RAISED" onAction="#agregarCorreo" prefHeight="40.0" prefWidth="100.0" text="Agregar" />
+                  <JFXButton buttonType="RAISED" layoutX="10.0" layoutY="10.0" onAction="#eliminarCorreo" prefHeight="40.0" prefWidth="100.0" text="Eliminar" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</HBox>
